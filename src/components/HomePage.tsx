@@ -371,8 +371,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             <span className="text-gradient-gold drop-shadow-lg">VIRTUAL AI TEACHER</span>
           </h1>
 
-          <p className="text-base md:text-xl text-gray-300 max-w-xl md:max-w-2xl mx-auto mb-8 md:mb-10 leading-relaxed font-light fade-in-up px-2" style={{ animationDelay: '0.3s' }}>
-            An intelligent VR-powered educator delivering immersive, interactive, and personalized learning experiences.
+          <p className="text-base md:text-xl text-gray-300 max-w-xl md:max-w-3xl mx-auto mb-8 md:mb-10 leading-relaxed font-light fade-in-up px-2" style={{ animationDelay: '0.3s' }}>
+            The 14 Lights Studio presents Pakistan's First Virtual AI Teacher—an advanced conversational AI classroom assistant and adaptive EdTech avatar engineered for multilingual learning in Urdu and English. Empowering educational institutions with personalized AI tutoring, spatial VR simulations, and next-generation interactive learning.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-5 w-full sm:w-auto fade-in-up" style={{ animationDelay: '0.4s' }}>
@@ -449,7 +449,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               </h2>
 
               <p className="mt-8 text-lg leading-8 text-slate-300">
-                <strong className="text-white">The 14 Lights</strong> is an immersive technology studio specializing in Game Development, Artificial Intelligence and Extended Reality. We create innovative digital experiences for education, enterprise and entertainment.
+                <strong className="text-white">The 14 Lights Studio</strong> is an immersive technology powerhouse specializing in proprietary EdTech AI platforms, custom Game Development, and Extended Reality (XR). We bridge cutting-edge artificial intelligence with interactive 3D spatial computing to redefine digital education, enterprise training, and global gaming entertainment.
+              </p>
+              <p className="mt-4 text-sm leading-7 text-slate-400">
+                Our flagship product, the <strong>Pakistan Virtual AI Teacher</strong>, integrates real-time natural language processing, multilingual Urdu and English voice synthesis, and adaptive curriculum algorithms to deliver 1-on-1 personalized tutoring for schools and self-directed learners across Pakistan.
               </p>
 
               <div className="mt-10 flex flex-wrap gap-4">
@@ -469,15 +472,19 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                     <i className="fa-solid fa-gamepad text-amber-400 text-2xl"></i>
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3">🎮 Game Development</h3>
-                  <p className="text-slate-400 leading-7">High-quality PC, Mobile, Console and VR games built with Unreal Engine & Unity.</p>
+                  <p className="text-slate-400 leading-7 text-sm">
+                    Full-cycle PC, Mobile, Console, and VR game engineering using <a href="https://www.unrealengine.com/" target="_blank" rel="noopener noreferrer" className="text-amber-400 underline hover:text-amber-300">Unreal Engine 5</a> &amp; <a href="https://unity.com/" target="_blank" rel="noopener noreferrer" className="text-amber-400 underline hover:text-amber-300">Unity</a>.
+                  </p>
                 </div>
 
                 <div className="group rounded-3xl p-7 bg-white/[0.04] backdrop-blur-md border border-white/10 hover:border-blue-400/50 hover:-translate-y-2 transition-all duration-300">
                   <div className="w-16 h-16 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6">
                     <i className="fa-solid fa-robot text-blue-400 text-2xl"></i>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-3">🤖 AI & Virtual Reality</h3>
-                  <p className="text-slate-400 leading-7">AI-powered virtual assistants and immersive learning experiences.</p>
+                  <h3 className="text-xl font-bold text-white mb-3">🤖 AI &amp; Virtual Reality</h3>
+                  <p className="text-slate-400 leading-7 text-sm">
+                    Interactive classroom avatars and localized <a href="https://ai.google/" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline hover:text-blue-300">Generative AI</a> models powering the Pakistan Virtual AI Teacher.
+                  </p>
                 </div>
 
                 <div className="group rounded-3xl p-7 bg-white/[0.04] backdrop-blur-md border border-white/10 hover:border-purple-400/50 hover:-translate-y-2 transition-all duration-300">
@@ -485,7 +492,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                     <i className="fa-solid fa-vr-cardboard text-purple-400 text-2xl"></i>
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3">🥽 XR Solutions</h3>
-                  <p className="text-slate-400 leading-7">AR, VR and Mixed Reality solutions for education, healthcare and enterprise.</p>
+                  <p className="text-slate-400 leading-7 text-sm">
+                    Immersive AR, VR, and Spatial Computing simulations designed for modern education, healthcare, and industrial workforce training.
+                  </p>
                 </div>
 
                 <div className="group rounded-3xl p-7 bg-white/[0.04] backdrop-blur-md border border-white/10 hover:border-green-400/50 hover:-translate-y-2 transition-all duration-300">
@@ -493,7 +502,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                     <i className="fa-solid fa-laptop-code text-green-400 text-2xl"></i>
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3">🚀 Cross Platform</h3>
-                  <p className="text-slate-400 leading-7">Meta Quest, Windows, Android, iOS, PlayStation and Xbox development.</p>
+                  <p className="text-slate-400 leading-7 text-sm">
+                    Multi-platform deployment spanning <a href="https://www.meta.com/quest/" target="_blank" rel="noopener noreferrer" className="text-green-400 underline hover:text-green-300">Meta Quest</a>, Windows, Android, iOS, PlayStation, and Xbox.
+                  </p>
                 </div>
               </div>
             </div>
@@ -694,12 +705,12 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 xl:gap-y-14">
               {[
-                { name: 'Hassan Noor Soomro', role: 'Founder & System Designer', img: 'https://the14lights.com/assets/team/HNS.jpeg', animSpeed: '12s' },
-                { name: 'Anum Shakeel', role: 'Chief Marketing Officer', img: 'https://the14lights.com/assets/team/anum.jpeg', animSpeed: '10s' },
-                { name: 'Dr Danish Nazir', role: '3D Artist & Developer', img: 'https://the14lights.com/assets/team/Danish.jpeg', animSpeed: '11s' },
-                { name: 'Ali', role: 'Animator & Rigger', img: 'https://the14lights.com/assets/team/Ali%20Animator%20and%20Rigger.jpeg', animSpeed: '13s' },
-                { name: 'Ahmed Shahab', role: 'UI/UX Game Designer', img: 'https://the14lights.com/assets/team/ahmed.jpeg', animSpeed: '14s' },
-                { name: 'Muhammad Sheroz', role: 'Security Expert', img: 'https://the14lights.com/assets/team/sheroz.jpeg', animSpeed: '15s' },
+                { name: 'Hassan Noor Soomro', role: 'Founder & System Designer', bio: 'Architect behind Pakistan Virtual AI Teacher and studio system design.', img: 'https://the14lights.com/assets/team/HNS.jpeg', animSpeed: '12s' },
+                { name: 'Anum Shakeel', role: 'Chief Marketing Officer', bio: 'Directing global brand strategy, growth, and EdTech partnerships.', img: 'https://the14lights.com/assets/team/anum.jpeg', animSpeed: '10s' },
+                { name: 'Dr Danish Nazir', role: '3D Artist & Developer', bio: 'Specializing in high-fidelity 3D modeling, spatial rendering, and VR assets.', img: 'https://the14lights.com/assets/team/Danish.jpeg', animSpeed: '11s' },
+                { name: 'Ali', role: 'Animator & Rigger', bio: 'Expert in character rigging, facial capture, and smooth avatar locomotion.', img: 'https://the14lights.com/assets/team/Ali%20Animator%20and%20Rigger.jpeg', animSpeed: '13s' },
+                { name: 'Ahmed Shahab', role: 'UI/UX Game Designer', bio: 'Designing intuitive player interfaces and fluid mobile touch controls.', img: 'https://the14lights.com/assets/team/ahmed.jpeg', animSpeed: '14s' },
+                { name: 'Muhammad Sheroz', role: 'Security Expert', bio: 'Ensuring enterprise-grade data privacy, cloud protection, and server resilience.', img: 'https://the14lights.com/assets/team/sheroz.jpeg', animSpeed: '15s' },
               ].map((member, idx) => (
                 <div key={idx} className="group flex flex-col items-center text-center transition-all duration-500 hover:-translate-y-2">
                   <div className="relative w-36 h-36 md:w-40 md:h-40 mb-6">
@@ -716,11 +727,14 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                       />
                     </div>
                   </div>
-                  <h4 className="text-xl md:text-2xl font-bold text-white mb-1 transition-colors duration-300 group-hover:text-gold-500">
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-1 transition-colors duration-300 group-hover:text-gold-500">
                     {member.name}
-                  </h4>
-                  <p className="text-xs md:text-sm text-neutral-400 font-medium uppercase tracking-[0.15em]">
+                  </h3>
+                  <p className="text-xs md:text-sm text-neutral-400 font-medium uppercase tracking-[0.15em] mb-2">
                     {member.role}
+                  </p>
+                  <p className="text-xs text-neutral-500 max-w-xs leading-relaxed">
+                    {member.bio}
                   </p>
                 </div>
               ))}
