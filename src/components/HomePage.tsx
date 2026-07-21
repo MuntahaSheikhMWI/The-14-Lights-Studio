@@ -30,12 +30,13 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
     if (!ctx) return;
 
     let animationFrameId: number;
+    let isVisible = true;
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
     const isMobile = window.innerWidth < 768;
-    const starCount = isMobile ? 180 : 450;
-    const speed = 2;
+    const starCount = isMobile ? 120 : 350;
+    const speed = 1.8;
     const colors = ['#D4AF37', '#3B82F6', '#ffffff', '#8e6f1f'];
 
     interface Star {
@@ -68,47 +69,57 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       initStars();
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize, { passive: true });
     initStars();
 
+    const observer = new IntersectionObserver(
+      (entries) => {
+        isVisible = entries[0].isIntersecting;
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(canvas);
+
     const animate = () => {
-      ctx.fillStyle = 'rgba(5, 5, 7, 0.4)';
-      ctx.fillRect(0, 0, width, height);
+      if (isVisible) {
+        ctx.fillStyle = 'rgba(5, 5, 7, 0.4)';
+        ctx.fillRect(0, 0, width, height);
 
-      const cx = width / 2;
-      const cy = height / 2;
+        const cx = width / 2;
+        const cy = height / 2;
 
-      for (let i = 0; i < stars.length; i++) {
-        const star = stars[i];
-        star.z -= speed;
+        for (let i = 0; i < stars.length; i++) {
+          const star = stars[i];
+          star.z -= speed;
 
-        if (star.z <= 0) {
-          star.z = width;
-          star.x = Math.random() * width - width / 2;
-          star.y = Math.random() * height - height / 2;
-        }
+          if (star.z <= 0) {
+            star.z = width;
+            star.x = Math.random() * width - width / 2;
+            star.y = Math.random() * height - height / 2;
+          }
 
-        const k = 128.0 / star.z;
-        const px = star.x * k + cx;
-        const py = star.y * k + cy;
+          const k = 128.0 / star.z;
+          const px = star.x * k + cx;
+          const py = star.y * k + cy;
 
-        const size = (1 - star.z / width) * 3;
-        const opacity = 1 - star.z / width;
+          const size = (1 - star.z / width) * 3;
+          const opacity = 1 - star.z / width;
 
-        if (px >= 0 && px <= width && py >= 0 && py <= height) {
-          ctx.beginPath();
-          ctx.fillStyle = star.c;
-          ctx.globalAlpha = opacity;
-          ctx.arc(px, py, Math.max(0, size), 0, Math.PI * 2);
-          ctx.fill();
-
-          if (size > 1.5) {
+          if (px >= 0 && px <= width && py >= 0 && py <= height) {
             ctx.beginPath();
-            ctx.strokeStyle = star.c;
-            ctx.lineWidth = size * 0.5;
-            ctx.moveTo(px, py);
-            ctx.lineTo(px + (px - cx) * 0.05, py + (py - cy) * 0.05);
-            ctx.stroke();
+            ctx.fillStyle = star.c;
+            ctx.globalAlpha = opacity;
+            ctx.arc(px, py, Math.max(0, size), 0, Math.PI * 2);
+            ctx.fill();
+
+            if (size > 1.5) {
+              ctx.beginPath();
+              ctx.strokeStyle = star.c;
+              ctx.lineWidth = size * 0.5;
+              ctx.moveTo(px, py);
+              ctx.lineTo(px + (px - cx) * 0.05, py + (py - cy) * 0.05);
+              ctx.stroke();
+            }
           }
         }
       }
@@ -120,6 +131,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
     return () => {
       window.removeEventListener('resize', handleResize);
+      observer.disconnect();
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
@@ -130,14 +142,29 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
     if (!slider) return;
 
     let autoScroll = true;
+    let isVisible = false;
     let animationId: number;
     let resumeTimeout: NodeJS.Timeout;
     const scrollSpeed = 0.8;
+    let maxScroll = slider.scrollWidth / 2 || 1000;
+
+    const updateMaxScroll = () => {
+      if (slider) maxScroll = slider.scrollWidth / 2;
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        isVisible = entries[0].isIntersecting;
+        if (isVisible) updateMaxScroll();
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(slider);
 
     const animate = () => {
-      if (window.innerWidth < 1024 && autoScroll && slider) {
+      if (window.innerWidth < 1024 && autoScroll && isVisible && slider) {
         slider.scrollLeft += scrollSpeed;
-        if (slider.scrollLeft >= slider.scrollWidth / 2) {
+        if (slider.scrollLeft >= maxScroll) {
           slider.scrollLeft = 0;
         }
       }
@@ -151,6 +178,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       clearTimeout(resumeTimeout);
       resumeTimeout = setTimeout(() => {
         autoScroll = true;
+        updateMaxScroll();
       }, 2000);
     };
 
@@ -162,6 +190,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
     return () => {
       cancelAnimationFrame(animationId);
       clearTimeout(resumeTimeout);
+      observer.disconnect();
       if (slider) {
         slider.removeEventListener('touchstart', pauseAutoScroll);
         slider.removeEventListener('touchmove', pauseAutoScroll);
@@ -177,14 +206,29 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
     if (!slider) return;
 
     let autoScroll = true;
+    let isVisible = false;
     let animationId: number;
     let resumeTimeout: NodeJS.Timeout;
     const scrollSpeed = 0.6;
+    let maxScroll = slider.scrollWidth / 2 || 1000;
+
+    const updateMaxScroll = () => {
+      if (slider) maxScroll = slider.scrollWidth / 2;
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        isVisible = entries[0].isIntersecting;
+        if (isVisible) updateMaxScroll();
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(slider);
 
     const animate = () => {
-      if (window.innerWidth < 1024 && autoScroll && slider) {
+      if (window.innerWidth < 1024 && autoScroll && isVisible && slider) {
         slider.scrollLeft += scrollSpeed;
-        if (slider.scrollLeft >= slider.scrollWidth / 2) {
+        if (slider.scrollLeft >= maxScroll) {
           slider.scrollLeft = 0;
         }
       }
@@ -198,6 +242,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       clearTimeout(resumeTimeout);
       resumeTimeout = setTimeout(() => {
         autoScroll = true;
+        updateMaxScroll();
       }, 3000);
     };
 
@@ -209,6 +254,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
     return () => {
       cancelAnimationFrame(animationId);
       clearTimeout(resumeTimeout);
+      observer.disconnect();
       if (slider) {
         slider.removeEventListener('touchstart', pauseAutoScroll);
         slider.removeEventListener('touchmove', pauseAutoScroll);

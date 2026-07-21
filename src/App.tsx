@@ -1,8 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, lazy, Suspense } from 'react';
 import { HomePage } from './components/HomePage';
-import { BlogListingPage } from './components/BlogListingPage';
-import { BlogArticlePage } from './components/BlogArticlePage';
 import { PageView } from './types';
+
+const BlogListingPage = lazy(() =>
+  import('./components/BlogListingPage').then((m) => ({ default: m.BlogListingPage }))
+);
+const BlogArticlePage = lazy(() =>
+  import('./components/BlogArticlePage').then((m) => ({ default: m.BlogArticlePage }))
+);
 
 export default function App() {
   const [currentView, setCurrentView] = useState<PageView>('home');
@@ -37,10 +42,10 @@ export default function App() {
   };
 
   return (
-    <>
+    <Suspense fallback={<div className="min-h-screen bg-[#050507] text-white flex items-center justify-center"><div className="w-8 h-8 border-2 border-gold-500 border-t-transparent rounded-full animate-spin"></div></div>}>
       {currentView === 'home' && <HomePage onNavigate={navigateTo} />}
       {currentView === 'blog' && <BlogListingPage onNavigate={navigateTo} />}
       {currentView === 'article' && <BlogArticlePage onNavigate={navigateTo} />}
-    </>
+    </Suspense>
   );
 }
