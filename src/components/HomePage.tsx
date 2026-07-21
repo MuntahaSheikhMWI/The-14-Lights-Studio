@@ -33,7 +33,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
-    const starCount = 800;
+    const isMobile = window.innerWidth < 768;
+    const starCount = isMobile ? 180 : 450;
     const speed = 2;
     const colors = ['#D4AF37', '#3B82F6', '#ffffff', '#8e6f1f'];
 
