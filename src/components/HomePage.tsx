@@ -464,11 +464,18 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               <span>Contact Us</span>
             </a>
           </div>
-        </div>
 
-        <div className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 text-gray-500 animate-pulse-slow z-20">
-          <span className="text-[10px] uppercase tracking-[0.3em] block mb-2 text-center opacity-70">Scroll</span>
-          <i className="fa-solid fa-chevron-down text-xl" aria-hidden="true"></i>
+          {/* Scroll Indicator positioned directly below hero buttons */}
+          <a
+            href="#about"
+            onClick={(e) => handleNavClick(e, '#about')}
+            className="mt-8 md:mt-10 flex flex-col items-center justify-center gap-1.5 text-gray-400 hover:text-gold-400 transition-colors duration-300 animate-pulse-slow cursor-pointer z-20 group fade-in-up"
+            style={{ animationDelay: '0.5s' }}
+            aria-label="Scroll down to About section"
+          >
+            <span className="text-[10px] md:text-xs font-semibold uppercase tracking-[0.3em] opacity-80 group-hover:opacity-100 transition-opacity">Scroll</span>
+            <i className="fa-solid fa-chevron-down text-base md:text-lg transform group-hover:translate-y-1 transition-transform duration-300" aria-hidden="true"></i>
+          </a>
         </div>
       </header>
 
@@ -488,20 +495,25 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               className="flex lg:grid lg:grid-cols-7 lg:gap-6 gap-6 items-center lg:justify-items-center w-full overflow-x-auto lg:overflow-visible [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] py-4 lg:py-0 cursor-grab active:cursor-grabbing lg:cursor-auto"
             >
               {[
-                { name: 'Steam', icon: 'fa-brands fa-steam', src: '/platforms/steam.png', fallback: 'https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg' },
-                { name: 'Xbox', icon: 'fa-brands fa-xbox', src: '/platforms/xbox.png', fallback: 'https://upload.wikimedia.org/wikipedia/commons/f/f9/Xbox_one_logo.svg' },
-                { name: 'PlayStation', icon: 'fa-brands fa-playstation', src: '/platforms/playstation.png', fallback: 'https://upload.wikimedia.org/wikipedia/commons/0/00/PlayStation_logo.svg' },
-                { name: 'Unity', icon: 'fa-brands fa-unity', src: '/platforms/unitygame.png', fallback: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Unity_Technologies_logo.svg' },
-                { name: 'Unreal Engine', icon: 'fa-solid fa-cubes-stacked', src: '/platforms/unrealengine.png', fallback: 'https://upload.wikimedia.org/wikipedia/commons/2/20/Unreal_Engine_logo.svg' },
-                { name: 'Meta Quest', icon: 'fa-brands fa-meta', src: '/platforms/meta.png', fallback: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg' },
-                { name: 'NVIDIA', icon: 'fa-solid fa-microchip', src: '/platforms/nvidia.png', fallback: 'https://upload.wikimedia.org/wikipedia/commons/2/21/Nvidia_logo.svg' },
+                { name: 'Steam', src: '/platforms/steam.png' },
+                { name: 'Xbox', src: '/platforms/xbox.png' },
+                { name: 'PlayStation', src: '/platforms/playstation.png' },
+                { name: 'Unity', src: '/platforms/unitygame.png' },
+                { name: 'Unreal Engine', src: '/platforms/unrealengine.png' },
+                { name: 'Meta Quest', src: '/platforms/meta.png' },
+                { name: 'NVIDIA', src: '/platforms/nvidia.png' },
               ].map((brand, idx) => (
                 <div
                   key={idx}
-                  className="brand-item flex-shrink-0 flex items-center justify-center gap-3 px-5 py-3 rounded-xl bg-white/5 border border-white/10 hover:border-gold-500/40 hover:bg-white/10 min-w-[140px] lg:min-w-0 opacity-85 hover:opacity-100 transition-all duration-300 select-none group"
+                  title={brand.name}
+                  aria-label={brand.name}
+                  className="brand-item flex-shrink-0 flex items-center justify-center p-2 opacity-90 hover:opacity-100 transition-all duration-300 select-none group"
                 >
-                  <i className={`${brand.icon} text-2xl text-gold-400 group-hover:scale-110 transition duration-300`} aria-hidden="true"></i>
-                  <span className="text-xs font-bold text-gray-200 group-hover:text-white transition whitespace-nowrap tracking-wide">{brand.name}</span>
+                  <img
+                    src={brand.src}
+                    alt={brand.name}
+                    className="w-12 h-12 sm:w-14 sm:h-14 object-contain filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] transform group-hover:scale-125 transition-transform duration-300"
+                  />
                 </div>
               ))}
             </div>
