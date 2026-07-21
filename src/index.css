@@ -1,0 +1,278 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gold-400: #E6C75A;
+  --color-gold-500: #D4AF37;
+  --color-gold-600: #AA8C2C;
+  --color-gold-900: #3D3210;
+
+  --color-dark-950: #050507;
+  --color-dark-900: #0A0A0F;
+  --color-dark-800: #12121A;
+
+  --font-sans: 'Poppins', sans-serif;
+  --font-display: 'Orbitron', sans-serif;
+}
+
+:root {
+  --gold-primary: #D4AF37;
+  --gold-glow: rgba(212, 175, 55, 0.4);
+}
+
+/* Home Dark Theme Styles */
+body.home-page {
+  background-color: #050507;
+  color: #e6eef8;
+  background-image: radial-gradient(circle at 50% 0%, #1a1a2e 0%, #050507 60%);
+  background-attachment: fixed;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body.home-page .text-gradient-gold {
+  background: linear-gradient(135deg, #F2DC8A 0%, #D4AF37 50%, #AA8C2C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0px 2px 10px rgba(212, 175, 55, 0.2);
+}
+
+body.home-page .glass-panel {
+  background: rgba(18, 18, 26, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.2);
+}
+
+body.home-page .glass-panel:hover {
+  border-color: rgba(212, 175, 55, 0.3);
+  box-shadow: 0 8px 32px -4px rgba(0, 0, 0, 0.4), 0 0 15px rgba(212, 175, 55, 0.1);
+}
+
+body.home-page .nav-glass {
+  background: rgba(5, 5, 7, 0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body.home-page .btn-gold {
+  background: linear-gradient(90deg, #D4AF37 0%, #B59328 100%);
+  color: #050507;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Blog Light Theme Styles */
+body.blog-page {
+  background-color: #F8FAFC;
+  color: #334155;
+  background-image: radial-gradient(circle at 50% 0%, #EFF6FF 0%, #F8FAFC 50%);
+  background-attachment: fixed;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body.blog-page .text-gradient-gold {
+  background: linear-gradient(135deg, #AA8C2C 0%, #8A6D1C 50%, #5C4A0C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0px 2px 8px rgba(170, 140, 44, 0.1);
+}
+
+body.blog-page .glass-panel {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body.blog-page .glass-panel:hover {
+  border-color: rgba(170, 140, 44, 0.35);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1), 0 0 20px rgba(170, 140, 44, 0.08);
+}
+
+body.blog-page .nav-glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+body.blog-page .btn-gold {
+  background: linear-gradient(90deg, #D4AF37 0%, #B59328 100%);
+  color: #1e293b;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Common Button Sheen effect */
+.btn-gold::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: 0.5s;
+}
+
+.btn-gold:hover::before {
+  left: 100%;
+}
+
+.btn-gold:hover {
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Card 3D Effect */
+.card-3d {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+
+.card-3d:hover {
+  transform: translateY(-8px);
+}
+
+/* Card Scale Effect */
+.card-scale {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+}
+
+.card-scale:hover {
+  transform: translateY(-4px);
+}
+
+/* Reading Progress Indicator */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #D4AF37, #AA8C2C);
+  width: 0%;
+  z-index: 100;
+  transition: width 0.1s ease-out;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+body.home-page ::-webkit-scrollbar-track {
+  background: #050507;
+}
+
+body.blog-page ::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+body.home-page ::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+body.blog-page ::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+/* Glitch Text Effect */
+.glitch-text {
+  position: relative;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #050507;
+}
+
+.glitch-text::before {
+  left: 2px;
+  text-shadow: -1px 0 #ff00c1;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+  left: -2px;
+  text-shadow: -1px 0 #00fff9;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% { clip: rect(61px, 9999px, 52px, 0); }
+  5% { clip: rect(33px, 9999px, 11px, 0); }
+  100% { clip: rect(15px, 9999px, 12px, 0); }
+}
+
+@keyframes glitch-anim2 {
+  0% { clip: rect(2px, 9999px, 86px, 0); }
+  5% { clip: rect(82px, 9999px, 14px, 0); }
+  100% { clip: rect(12px, 9999px, 66px, 0); }
+}
+
+/* Neon Box */
+.neon-box {
+  position: relative;
+  background: #0A0A0F;
+  z-index: 1;
+}
+
+.neon-box::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  background: linear-gradient(45deg, #D4AF37, transparent, #2563eb);
+  border-radius: inherit;
+  opacity: 0.5;
+}
+
+/* Skip Link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #D4AF37;
+  color: #000;
+  padding: 8px 16px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Fade in animation */
+.fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
