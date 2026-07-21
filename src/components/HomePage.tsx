@@ -260,21 +260,15 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       {/* Navigation */}
       <nav className="sticky top-0 z-40 nav-glass transition-all duration-300 w-full" id="navbar" aria-label="Main Navigation">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
-          <button onClick={() => onNavigate('home')} className="group flex items-center gap-3 text-left focus:outline-none">
-            <div className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded overflow-hidden">
-              <img src="/assets/LargeIcon.png" alt="The 14 Lights Studios Logo" className="w-full h-full object-contain group-hover:scale-110 transition duration-300" onError={(e) => {
-                // Fallback icon if asset image not local
-                (e.target as HTMLElement).style.display = 'none';
-              }} />
-              <div className="absolute inset-0 flex items-center justify-center text-gold-500 text-xl font-bold">
-                <i className="fa-solid fa-cube"></i>
-              </div>
+          <button onClick={() => onNavigate('home')} className="group flex items-center gap-3 text-left focus:outline-none" aria-label="The 14 Lights Studios - Go to Homepage">
+            <div className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded overflow-hidden bg-white/5 border border-white/10 group-hover:border-gold-500/40 transition">
+              <i className="fa-solid fa-cube text-gold-500 text-xl" aria-hidden="true"></i>
             </div>
             <div className="flex flex-col">
               <span className="text-lg md:text-xl font-display font-bold text-white tracking-wider leading-none group-hover:text-gold-400 transition">
                 The<span className="text-gold-500"> 14 Lights</span>
               </span>
-              <span className="text-[0.5rem] md:text-[0.6rem] uppercase tracking-[0.2em] text-gray-500 group-hover:text-gray-300 transition">
+              <span className="text-[0.5rem] md:text-[0.6rem] uppercase tracking-[0.2em] text-gray-400 group-hover:text-gray-200 transition">
                 Studios
               </span>
             </div>
@@ -565,7 +559,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               {(activeTab === 'all' || activeTab === 'action') && (
                 <article className="game-card original-card group relative bg-dark-800 rounded-xl overflow-hidden border border-white/5 hover:border-gold-500/30 transition duration-300 flex-shrink-0 w-[85vw] sm:w-[340px] lg:w-auto" data-category="action">
                   <div className="aspect-[3/4] relative overflow-hidden bg-black pointer-events-none">
-                    <img src="https://i.ytimg.com/vi/-kyhy0ZcY6g/hq720.jpg" alt="Rogue Strike Game Cover" loading="lazy" draggable="false" className="w-full h-full object-cover scale-105 blur-[4px] brightness-50 transition-all duration-500" />
+                    <img src="https://i.ytimg.com/vi/-kyhy0ZcY6g/hq720.jpg" alt="Rogue Strike Game Cover" width={720} height={405} loading="lazy" draggable="false" className="w-full h-full object-cover scale-105 blur-[4px] brightness-50 transition-all duration-500" />
                     <div className="absolute inset-0 bg-black/40 z-10"></div>
                     <div className="absolute inset-0 flex items-center justify-center z-20">
                       <div className="px-6 py-3 rounded-full border border-gold-500/30 bg-black/70 backdrop-blur-md shadow-lg">
@@ -592,7 +586,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               {(activeTab === 'all' || activeTab === 'sports') && (
                 <article className="game-card original-card group relative bg-dark-800 rounded-xl overflow-hidden border border-white/5 hover:border-gold-500/30 transition duration-300 flex-shrink-0 w-[85vw] sm:w-[340px] lg:w-auto" data-category="sports">
                   <div className="aspect-[3/4] relative overflow-hidden bg-black pointer-events-none">
-                    <img src="https://the14lights.com/assets/games/CrazyFIFA2026.png" alt="Crazy FIFA 2026 Game Cover" loading="lazy" draggable="false" className="w-full h-full object-cover transition duration-500 group-hover:scale-105 group-hover:opacity-40 z-20 relative" onError={(e) => {
+                    <img src="https://the14lights.com/assets/games/CrazyFIFA2026.png" alt="Crazy FIFA 2026 Game Cover" width={676} height={900} loading="lazy" draggable="false" className="w-full h-full object-cover transition duration-500 group-hover:scale-105 group-hover:opacity-40 z-20 relative" onError={(e) => {
                       (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=800';
                     }} />
                     <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent opacity-90 z-30"></div>
@@ -625,7 +619,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               {(activeTab === 'all' || activeTab === 'sports') && (
                 <article className="game-card original-card group relative bg-black rounded-xl overflow-hidden border border-white/5 hover:border-gold-500/30 transition duration-300 flex-shrink-0 w-[85vw] sm:w-[340px] lg:w-auto" data-category="sports">
                   <div className="aspect-[4/4] relative overflow-hidden bg-black pointer-events-none flex items-center justify-center">
-                    <img src="https://the14lights.com/soccerdisc-league.png" alt="Soccer Disc League" loading="lazy" draggable="false" className="w-full h-auto object-contain transition duration-500 group-hover:scale-105 group-hover:opacity-40 z-20 relative" onError={(e) => {
+                    <img src="https://the14lights.com/soccerdisc-league.png" alt="Soccer Disc League" width={677} height={369} loading="lazy" draggable="false" className="w-full h-auto object-contain transition duration-500 group-hover:scale-105 group-hover:opacity-40 z-20 relative" onError={(e) => {
                       (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=800';
                     }} />
                     <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent opacity-90 z-30"></div>
@@ -658,7 +652,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               {(activeTab === 'all' || activeTab === 'action') && (
                 <article className="game-card original-card group relative bg-dark-800 rounded-xl overflow-hidden border border-white/5 hover:border-gold-500/30 transition duration-300 opacity-95 flex-shrink-0 w-[85vw] sm:w-[340px] lg:w-auto" data-category="action">
                   <div className="aspect-[3/4] relative overflow-hidden bg-black pointer-events-none">
-                    <img src="https://i.ytimg.com/vi/BpnAFSeir5U/hq720.jpg" alt="Veil of Mirrors Game Cover" loading="lazy" draggable="false" className="w-full h-full object-cover scale-105 blur-[4px] brightness-50 transition-all duration-500" />
+                    <img src="https://i.ytimg.com/vi/BpnAFSeir5U/hq720.jpg" alt="Veil of Mirrors Game Cover" width={720} height={405} loading="lazy" draggable="false" className="w-full h-full object-cover scale-105 blur-[4px] brightness-50 transition-all duration-500" />
                     <div className="absolute inset-0 bg-black/40 z-10"></div>
 
                     <div className="absolute inset-0 flex items-center justify-center z-30">
@@ -745,8 +739,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         {/* Pitch Banner */}
         <div id="contact" className="mt-24 mx-4 sm:mx-16 p-8 rounded-[2rem] bg-gradient-to-r from-neutral-950 to-neutral-900 border border-white/5 flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="text-center md:text-left">
-            <h5 className="text-xl font-bold text-white mb-1 tracking-tight">Ready to start a project?</h5>
-            <p className="text-neutral-500 text-sm">Our specialists are currently accepting high-profile collaborations.</p>
+            <h3 className="text-xl font-bold text-white mb-1 tracking-tight">Ready to start a project?</h3>
+            <p className="text-neutral-400 text-sm">Our specialists are currently accepting high-profile collaborations.</p>
           </div>
           <button className="w-full md:w-auto px-10 py-4 bg-gold-500 text-black text-xs font-black uppercase tracking-[0.2em] rounded-full shadow-[0_10px_30px_rgba(212,175,55,0.2)] hover:scale-105 hover:bg-white transition-all duration-300">
             Get In Touch
@@ -822,6 +816,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                       <img
                         src={item.img}
                         alt={item.name}
+                        width={48}
+                        height={48}
                         loading="lazy"
                         draggable="false"
                         className="w-12 h-12 rounded-full border border-white/10 object-cover"
@@ -830,7 +826,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                         }}
                       />
                       <div>
-                        <h4 className="text-white font-semibold">{item.name}</h4>
+                        <h3 className="text-white font-semibold">{item.name}</h3>
                         <div className="flex gap-1 mt-1 text-gold-500 text-xs">
                           {Array.from({ length: 5 }).map((_, starIdx) => (
                             <i
@@ -863,7 +859,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   <h3 className="text-2xl font-display font-bold text-white tracking-wide">
                     The <span className="text-gold-500">14 Lights</span>
                   </h3>
-                  <p className="text-sm text-gray-500">AI • Games • XR • Digital Innovation</p>
+                  <p className="text-sm text-gray-400">AI • Games • XR • Digital Innovation</p>
                 </div>
               </button>
 
@@ -873,10 +869,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
               <nav className="mt-8">
                 <ul className="flex flex-wrap gap-x-8 gap-y-3 text-sm">
-                  <li><a href="#about" onClick={(e) => handleNavClick(e, '#about')} className="text-gray-500 hover:text-gold-500 transition">About Us</a></li>
-                  <li><a href="#team" onClick={(e) => handleNavClick(e, '#team')} className="text-gray-500 hover:text-gold-500 transition">Careers</a></li>
-                  <li><a href="#" className="text-gray-500 hover:text-gold-500 transition">Privacy Policy</a></li>
-                  <li><a href="#contact" onClick={(e) => handleNavClick(e, '#contact')} className="text-gray-500 hover:text-gold-500 transition">Contact</a></li>
+                  <li><a href="#about" onClick={(e) => handleNavClick(e, '#about')} className="text-gray-400 hover:text-gold-500 transition">About Us</a></li>
+                  <li><a href="#team" onClick={(e) => handleNavClick(e, '#team')} className="text-gray-400 hover:text-gold-500 transition">Careers</a></li>
+                  <li><a href="#" className="text-gray-400 hover:text-gold-500 transition" aria-label="Privacy Policy">Privacy Policy</a></li>
+                  <li><a href="#contact" onClick={(e) => handleNavClick(e, '#contact')} className="text-gray-400 hover:text-gold-500 transition">Contact</a></li>
                 </ul>
               </nav>
             </div>
@@ -889,7 +885,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                     <i className="fa-solid fa-envelope"></i>
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-widest text-gray-500">Email</p>
+                    <p className="text-xs uppercase tracking-widest text-gray-400">Email</p>
                     <p className="text-white text-sm group-hover:text-gold-500 transition">hello@the14lights.com</p>
                   </div>
                 </a>
@@ -899,7 +895,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                     <i className="fa-solid fa-location-dot"></i>
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-widest text-gray-500">Location</p>
+                    <p className="text-xs uppercase tracking-widest text-gray-400">Location</p>
                     <p className="text-white text-sm">Karachi, Pakistan</p>
                   </div>
                 </div>
@@ -908,10 +904,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               <div className="mt-8">
                 <h4 className="text-white font-medium mb-4">Follow Us</h4>
                 <div className="flex gap-3">
-                  <a href="#" className="w-11 h-11 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center text-gray-400 hover:bg-gold-500 hover:border-gold-500 hover:text-black transition"><i className="fab fa-facebook-f"></i></a>
-                  <a href="#" className="w-11 h-11 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center text-gray-400 hover:bg-gold-500 hover:border-gold-500 hover:text-black transition"><i className="fab fa-linkedin-in"></i></a>
-                  <a href="#" className="w-11 h-11 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center text-gray-400 hover:bg-gold-500 hover:border-gold-500 hover:text-black transition"><i className="fab fa-youtube"></i></a>
-                  <a href="#" className="w-11 h-11 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center text-gray-400 hover:bg-gold-500 hover:border-gold-500 hover:text-black transition"><i className="fab fa-instagram"></i></a>
+                  <a href="#" className="w-11 h-11 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center text-gray-300 hover:bg-gold-500 hover:border-gold-500 hover:text-black transition" aria-label="Facebook Profile"><i className="fab fa-facebook-f"></i></a>
+                  <a href="#" className="w-11 h-11 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center text-gray-300 hover:bg-gold-500 hover:border-gold-500 hover:text-black transition" aria-label="LinkedIn Profile"><i className="fab fa-linkedin-in"></i></a>
+                  <a href="#" className="w-11 h-11 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center text-gray-300 hover:bg-gold-500 hover:border-gold-500 hover:text-black transition" aria-label="YouTube Channel"><i className="fab fa-youtube"></i></a>
+                  <a href="#" className="w-11 h-11 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center text-gray-300 hover:bg-gold-500 hover:border-gold-500 hover:text-black transition" aria-label="Instagram Profile"><i className="fab fa-instagram"></i></a>
                 </div>
               </div>
             </div>
@@ -919,12 +915,12 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
           <div className="mt-14 pt-6 border-t border-white/10">
             <div className="flex flex-col md:flex-row items-center justify-between gap-5">
-              <p className="text-sm text-gray-500 text-center md:text-left">
+              <p className="text-sm text-gray-400 text-center md:text-left">
                 © 2026 <span className="text-white font-medium">The 14 Lights.</span> Building the Future with AI, Games & XR.
               </p>
               <div className="flex items-center gap-6 text-sm">
-                <a href="#" className="text-gray-500 hover:text-gold-500 transition">Terms of Service</a>
-                <a href="#" className="text-gray-500 hover:text-gold-500 transition">Privacy Policy</a>
+                <a href="#" className="text-gray-400 hover:text-gold-500 transition" aria-label="Terms of Service">Terms of Service</a>
+                <a href="#" className="text-gray-400 hover:text-gold-500 transition" aria-label="Privacy Policy">Privacy Policy</a>
               </div>
             </div>
           </div>

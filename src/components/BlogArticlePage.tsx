@@ -216,6 +216,8 @@ export const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ onNavigate }) 
               <img
                 src="https://the14lights.com/assets/team/HNS.jpeg"
                 alt="Hassan Noor Soomro"
+                width={48}
+                height={48}
                 className="w-12 h-12 rounded-full border border-slate-300 object-cover"
                 loading="lazy"
                 onError={(e) => {
@@ -255,6 +257,8 @@ export const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ onNavigate }) 
             <img
               src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1600"
               alt="Render pipeline testing of interactive WebGL mechanics"
+              width={1200}
+              height={514}
               className="w-full h-full object-cover"
             />
           </div>
@@ -267,7 +271,7 @@ export const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ onNavigate }) 
             <article className="lg:col-span-8 bg-white border border-slate-200/60 p-6 md:p-10 rounded-3xl shadow-sm">
               {/* Mobile Table of Contents */}
               <div className="lg:hidden p-5 mb-8 bg-slate-50 rounded-2xl border border-slate-200">
-                <h4 className="font-display font-bold text-slate-900 text-sm uppercase tracking-wider mb-3">Table of Contents</h4>
+                <h2 className="font-display font-bold text-slate-900 text-sm uppercase tracking-wider mb-3">Table of Contents</h2>
                 <ul className="space-y-2 text-xs font-medium text-slate-600">
                   <li><button onClick={() => scrollToSection('section-1')} className="hover:text-gold-600 transition text-left block">1. The Rendering Paradigm Shift</button></li>
                   <li><button onClick={() => scrollToSection('section-2')} className="hover:text-gold-600 transition text-left block">2. Designing for WebGL Pipelines</button></li>
@@ -449,7 +453,7 @@ function initAssetBuffers(gl, meshData) {
               <section className="glass-panel p-6 rounded-2xl" aria-labelledby="author-title">
                 <h3 id="author-title" className="text-xs font-display font-bold text-slate-900 uppercase tracking-wider mb-4 pb-2 border-b border-slate-100">About the Author</h3>
                 <div className="flex items-center gap-4 mb-3">
-                  <img src="https://the14lights.com/assets/team/HNS.jpeg" alt="Hassan Noor Soomro" className="w-12 h-12 rounded-full object-cover" />
+                  <img src="https://the14lights.com/assets/team/HNS.jpeg" alt="Hassan Noor Soomro" width={48} height={48} className="w-12 h-12 rounded-full object-cover" />
                   <div>
                     <h4 className="font-bold text-xs text-slate-900">Hassan Noor Soomro</h4>
                     <span className="text-[10px] text-gold-600 uppercase font-medium">Founder & Designer</span>
@@ -459,9 +463,9 @@ function initAssetBuffers(gl, meshData) {
                   Hassan leads system topology design and real-time environment configurations for our software portfolio.
                 </p>
                 <div className="flex items-center gap-3 text-slate-400 text-xs">
-                  <a href="#" className="hover:text-gold-600 transition"><i className="fab fa-twitter"></i></a>
-                  <a href="#" className="hover:text-gold-600 transition"><i className="fab fa-github"></i></a>
-                  <a href="#" className="hover:text-gold-600 transition"><i className="fab fa-linkedin"></i></a>
+                  <a href="#" className="hover:text-gold-600 transition" aria-label="Twitter Profile"><i className="fab fa-twitter"></i></a>
+                  <a href="#" className="hover:text-gold-600 transition" aria-label="GitHub Profile"><i className="fab fa-github"></i></a>
+                  <a href="#" className="hover:text-gold-600 transition" aria-label="LinkedIn Profile"><i className="fab fa-linkedin"></i></a>
                 </div>
               </section>
 
@@ -515,7 +519,7 @@ function initAssetBuffers(gl, meshData) {
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-12">
           <div className="p-8 rounded-[2rem] bg-gradient-to-r from-slate-100 to-slate-50 border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-8 shadow-sm">
             <div className="text-center md:text-left">
-              <h5 className="text-xl font-bold text-slate-900 mb-1 tracking-tight">Need Interactive Architecture?</h5>
+              <h3 className="text-xl font-bold text-slate-900 mb-1 tracking-tight">Need Interactive Architecture?</h3>
               <p className="text-slate-500 text-sm">We configure and build web platforms, custom mechanics, and esports modules.</p>
             </div>
             <button onClick={() => onNavigate('home')} className="w-full md:w-auto px-10 py-4 bg-gold-500 text-slate-900 text-xs font-black uppercase tracking-[0.2em] rounded-full shadow-[0_10px_25px_rgba(212,175,55,0.25)] hover:scale-105 hover:bg-slate-900 hover:text-white transition-all duration-300">

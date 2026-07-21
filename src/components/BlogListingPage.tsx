@@ -111,14 +111,9 @@ export const BlogListingPage: React.FC<BlogListingPageProps> = ({ onNavigate }) 
       {/* Navigation */}
       <nav className="sticky top-0 z-40 nav-glass transition-all duration-300 w-full" id="navbar" aria-label="Global Navigation">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
-          <button onClick={() => onNavigate('home')} className="group flex items-center gap-3 text-left focus:outline-none">
-            <div className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded overflow-hidden">
-              <img src="/assets/LargeIcon.png" alt="The 14 Lights Studios Logo" className="w-full h-full object-contain group-hover:scale-110 transition duration-300" onError={(e) => {
-                (e.target as HTMLElement).style.display = 'none';
-              }} />
-              <div className="absolute inset-0 flex items-center justify-center text-gold-600 text-xl font-bold">
-                <i className="fa-solid fa-cube"></i>
-              </div>
+          <button onClick={() => onNavigate('home')} className="group flex items-center gap-3 text-left focus:outline-none" aria-label="The 14 Lights Studios - Go to Homepage">
+            <div className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded bg-slate-100 border border-slate-200 group-hover:border-gold-500/40 transition">
+              <i className="fa-solid fa-cube text-gold-600 text-xl" aria-hidden="true"></i>
             </div>
             <div className="flex flex-col">
               <span className="text-lg md:text-xl font-display font-bold text-slate-900 tracking-wider leading-none group-hover:text-gold-600 transition">
@@ -505,7 +500,7 @@ export const BlogListingPage: React.FC<BlogListingPageProps> = ({ onNavigate }) 
             </div>
 
             <div className="flex flex-col gap-3">
-              <h5 className="text-white font-display font-bold text-sm tracking-wider uppercase mb-1">Navigation</h5>
+              <h3 className="text-white font-display font-bold text-sm tracking-wider uppercase mb-1">Navigation</h3>
               <ul className="space-y-2.5 text-sm">
                 <li><button onClick={() => onNavigate('home')} className="hover:text-gold-400 transition">Home</button></li>
                 <li><button onClick={() => onNavigate('home')} className="hover:text-gold-400 transition">Services</button></li>
@@ -516,7 +511,7 @@ export const BlogListingPage: React.FC<BlogListingPageProps> = ({ onNavigate }) 
             </div>
 
             <div className="flex flex-col gap-3">
-              <h5 className="text-white font-display font-bold text-sm tracking-wider uppercase mb-1">Departments</h5>
+              <h3 className="text-white font-display font-bold text-sm tracking-wider uppercase mb-1">Departments</h3>
               <ul className="space-y-2.5 text-sm">
                 <li><button onClick={() => onNavigate('home')} className="hover:text-gold-400 transition flex items-center gap-2"><i className="fa-solid fa-code text-gold-400 text-xs"></i> Services Division</button></li>
                 <li><button onClick={() => onNavigate('article')} className="hover:text-gold-400 transition flex items-center gap-2"><i className="fa-solid fa-microchip text-gold-400 text-xs"></i> Products Division</button></li>
@@ -525,7 +520,7 @@ export const BlogListingPage: React.FC<BlogListingPageProps> = ({ onNavigate }) 
             </div>
 
             <div className="flex flex-col gap-3">
-              <h5 className="text-white font-display font-bold text-sm tracking-wider uppercase mb-1">Stay Updated</h5>
+              <h3 className="text-white font-display font-bold text-sm tracking-wider uppercase mb-1">Stay Updated</h3>
               <p className="text-xs text-slate-400">Subscribe to our newsletter for product releases and tech deep-dives.</p>
               <form className="flex flex-col gap-2 mt-1" onSubmit={handleNewsletterSubmit}>
                 <input
