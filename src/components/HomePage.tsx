@@ -143,30 +143,44 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
     let autoScroll = true;
     let isVisible = false;
+    let isMobileView = window.innerWidth < 1024;
     let animationId: number;
     let resumeTimeout: NodeJS.Timeout;
     const scrollSpeed = 0.8;
-    let maxScroll = slider.scrollWidth / 2 || 1000;
+    let currentScroll = 0;
+    let maxScroll = 1000;
 
-    const updateMaxScroll = () => {
-      if (slider) maxScroll = slider.scrollWidth / 2;
+    const updateDimensions = () => {
+      if (slider) {
+        maxScroll = slider.scrollWidth / 2 || 1000;
+        currentScroll = slider.scrollLeft;
+      }
+      isMobileView = window.innerWidth < 1024;
     };
+
+    const handleResize = () => {
+      isMobileView = window.innerWidth < 1024;
+      if (isMobileView) updateDimensions();
+    };
+
+    window.addEventListener('resize', handleResize, { passive: true });
 
     const observer = new IntersectionObserver(
       (entries) => {
         isVisible = entries[0].isIntersecting;
-        if (isVisible) updateMaxScroll();
+        if (isVisible) updateDimensions();
       },
       { threshold: 0.1 }
     );
     observer.observe(slider);
 
     const animate = () => {
-      if (window.innerWidth < 1024 && autoScroll && isVisible && slider) {
-        slider.scrollLeft += scrollSpeed;
-        if (slider.scrollLeft >= maxScroll) {
-          slider.scrollLeft = 0;
+      if (isMobileView && autoScroll && isVisible && slider) {
+        currentScroll += scrollSpeed;
+        if (currentScroll >= maxScroll) {
+          currentScroll = 0;
         }
+        slider.scrollLeft = currentScroll;
       }
       animationId = requestAnimationFrame(animate);
     };
@@ -175,10 +189,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
     const pauseAutoScroll = () => {
       autoScroll = false;
+      if (slider) currentScroll = slider.scrollLeft;
       clearTimeout(resumeTimeout);
       resumeTimeout = setTimeout(() => {
+        if (slider) updateDimensions();
         autoScroll = true;
-        updateMaxScroll();
       }, 2000);
     };
 
@@ -188,6 +203,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
     slider.addEventListener('mousedown', pauseAutoScroll);
 
     return () => {
+      window.removeEventListener('resize', handleResize);
       cancelAnimationFrame(animationId);
       clearTimeout(resumeTimeout);
       observer.disconnect();
@@ -207,30 +223,44 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
     let autoScroll = true;
     let isVisible = false;
+    let isMobileView = window.innerWidth < 1024;
     let animationId: number;
     let resumeTimeout: NodeJS.Timeout;
     const scrollSpeed = 0.6;
-    let maxScroll = slider.scrollWidth / 2 || 1000;
+    let currentScroll = 0;
+    let maxScroll = 1000;
 
-    const updateMaxScroll = () => {
-      if (slider) maxScroll = slider.scrollWidth / 2;
+    const updateDimensions = () => {
+      if (slider) {
+        maxScroll = slider.scrollWidth / 2 || 1000;
+        currentScroll = slider.scrollLeft;
+      }
+      isMobileView = window.innerWidth < 1024;
     };
+
+    const handleResize = () => {
+      isMobileView = window.innerWidth < 1024;
+      if (isMobileView) updateDimensions();
+    };
+
+    window.addEventListener('resize', handleResize, { passive: true });
 
     const observer = new IntersectionObserver(
       (entries) => {
         isVisible = entries[0].isIntersecting;
-        if (isVisible) updateMaxScroll();
+        if (isVisible) updateDimensions();
       },
       { threshold: 0.1 }
     );
     observer.observe(slider);
 
     const animate = () => {
-      if (window.innerWidth < 1024 && autoScroll && isVisible && slider) {
-        slider.scrollLeft += scrollSpeed;
-        if (slider.scrollLeft >= maxScroll) {
-          slider.scrollLeft = 0;
+      if (isMobileView && autoScroll && isVisible && slider) {
+        currentScroll += scrollSpeed;
+        if (currentScroll >= maxScroll) {
+          currentScroll = 0;
         }
+        slider.scrollLeft = currentScroll;
       }
       animationId = requestAnimationFrame(animate);
     };
@@ -239,10 +269,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
     const pauseAutoScroll = () => {
       autoScroll = false;
+      if (slider) currentScroll = slider.scrollLeft;
       clearTimeout(resumeTimeout);
       resumeTimeout = setTimeout(() => {
+        if (slider) updateDimensions();
         autoScroll = true;
-        updateMaxScroll();
       }, 3000);
     };
 
@@ -252,6 +283,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
     slider.addEventListener('mousedown', pauseAutoScroll);
 
     return () => {
+      window.removeEventListener('resize', handleResize);
       cancelAnimationFrame(animationId);
       clearTimeout(resumeTimeout);
       observer.disconnect();
@@ -606,7 +638,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               {(activeTab === 'all' || activeTab === 'action') && (
                 <article className="game-card original-card group relative bg-dark-800 rounded-xl overflow-hidden border border-white/5 hover:border-gold-500/30 transition duration-300 flex-shrink-0 w-[85vw] sm:w-[340px] lg:w-auto" data-category="action">
                   <div className="aspect-[3/4] relative overflow-hidden bg-black pointer-events-none">
-                    <img src="https://i.ytimg.com/vi/-kyhy0ZcY6g/hq720.jpg" alt="Rogue Strike Game Cover" width={720} height={405} loading="lazy" draggable="false" className="w-full h-full object-cover scale-105 blur-[4px] brightness-50 transition-all duration-500" />
+                    <img src="https://i.ytimg.com/vi/-kyhy0ZcY6g/hqdefault.jpg" alt="Rogue Strike Game Cover" width={480} height={360} loading="lazy" decoding="async" draggable="false" className="w-full h-full object-cover scale-105 blur-[4px] brightness-50 transition-all duration-500" />
                     <div className="absolute inset-0 bg-black/40 z-10"></div>
                     <div className="absolute inset-0 flex items-center justify-center z-20">
                       <div className="px-6 py-3 rounded-full border border-gold-500/30 bg-black/70 backdrop-blur-md shadow-lg">
