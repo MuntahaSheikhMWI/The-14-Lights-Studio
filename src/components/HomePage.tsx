@@ -35,8 +35,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
     let height = (canvas.height = window.innerHeight);
 
     const isMobile = window.innerWidth < 768;
-    const starCount = isMobile ? 120 : 350;
-    const speed = 1.8;
+    const starCount = isMobile ? 45 : 250;
+    const speed = isMobile ? 1.2 : 1.8;
     const colors = ['#D4AF37', '#3B82F6', '#ffffff', '#8e6f1f'];
 
     interface Star {
@@ -80,45 +80,50 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
     );
     observer.observe(canvas);
 
-    const animate = () => {
+    let lastFrameTime = performance.now();
+    const animate = (now: number) => {
       if (isVisible) {
-        ctx.fillStyle = 'rgba(5, 5, 7, 0.4)';
-        ctx.fillRect(0, 0, width, height);
+        // Throttle mobile frames to ~30fps to save battery & CPU
+        if (!isMobile || now - lastFrameTime >= 30) {
+          lastFrameTime = now;
+          ctx.fillStyle = 'rgba(5, 5, 7, 0.4)';
+          ctx.fillRect(0, 0, width, height);
 
-        const cx = width / 2;
-        const cy = height / 2;
+          const cx = width / 2;
+          const cy = height / 2;
 
-        for (let i = 0; i < stars.length; i++) {
-          const star = stars[i];
-          star.z -= speed;
+          for (let i = 0; i < stars.length; i++) {
+            const star = stars[i];
+            star.z -= speed;
 
-          if (star.z <= 0) {
-            star.z = width;
-            star.x = Math.random() * width - width / 2;
-            star.y = Math.random() * height - height / 2;
-          }
+            if (star.z <= 0) {
+              star.z = width;
+              star.x = Math.random() * width - width / 2;
+              star.y = Math.random() * height - height / 2;
+            }
 
-          const k = 128.0 / star.z;
-          const px = star.x * k + cx;
-          const py = star.y * k + cy;
+            const k = 128.0 / star.z;
+            const px = star.x * k + cx;
+            const py = star.y * k + cy;
 
-          const size = (1 - star.z / width) * 3;
-          const opacity = 1 - star.z / width;
+            const size = (1 - star.z / width) * 3;
+            const opacity = 1 - star.z / width;
 
-          if (px >= 0 && px <= width && py >= 0 && py <= height) {
-            ctx.beginPath();
-            ctx.fillStyle = star.c;
-            ctx.globalAlpha = opacity;
-            ctx.arc(px, py, Math.max(0, size), 0, Math.PI * 2);
-            ctx.fill();
-
-            if (size > 1.5) {
+            if (px >= 0 && px <= width && py >= 0 && py <= height) {
               ctx.beginPath();
-              ctx.strokeStyle = star.c;
-              ctx.lineWidth = size * 0.5;
-              ctx.moveTo(px, py);
-              ctx.lineTo(px + (px - cx) * 0.05, py + (py - cy) * 0.05);
-              ctx.stroke();
+              ctx.fillStyle = star.c;
+              ctx.globalAlpha = opacity;
+              ctx.arc(px, py, Math.max(0, size), 0, Math.PI * 2);
+              ctx.fill();
+
+              if (!isMobile && size > 1.5) {
+                ctx.beginPath();
+                ctx.strokeStyle = star.c;
+                ctx.lineWidth = size * 0.5;
+                ctx.moveTo(px, py);
+                ctx.lineTo(px + (px - cx) * 0.05, py + (py - cy) * 0.05);
+                ctx.stroke();
+              }
             }
           }
         }
@@ -127,7 +132,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       animationFrameId = requestAnimationFrame(animate);
     };
 
-    animate();
+    animationFrameId = requestAnimationFrame(animate);
 
     return () => {
       window.removeEventListener('resize', handleResize);
@@ -787,7 +792,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               ].map((member, idx) => (
                 <div key={idx} className="group flex flex-col items-center text-center transition-all duration-500 hover:-translate-y-2">
                   <div className="relative w-36 h-36 md:w-40 md:h-40 mb-6">
-                    <div className="absolute inset-0 rounded-full border border-gold-500/20 group-hover:border-gold-500/80 group-hover:shadow-[0_0_30px_rgba(212,175,55,0.2)] transition-all duration-700 animate-[spin_12s_linear_infinite] z-10"></div>
+                    <div className="absolute inset-0 rounded-full border border-gold-500/20 group-hover:border-gold-500/80 group-hover:shadow-[0_0_30px_rgba(212,175,55,0.2)] transition-all duration-700 group-hover:animate-[spin_12s_linear_infinite] z-10"></div>
                     <div className="absolute inset-1 rounded-full overflow-hidden bg-neutral-900">
                       <img
                         src={member.img}
