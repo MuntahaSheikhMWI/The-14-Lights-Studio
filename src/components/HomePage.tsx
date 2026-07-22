@@ -3,7 +3,7 @@ import { PageView } from '../types';
 import vrLogo from '../assets/images/vr_logo_1784728392393.png';
 
 interface HomePageProps {
-  onNavigate: (page: PageView) => void;
+  onNavigate: (page: PageView, articleId?: string) => void;
 }
 
 export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {

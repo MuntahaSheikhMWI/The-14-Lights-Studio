@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { PageView } from '../types';
+import { BLOG_ARTICLES, BlogArticleData } from '../data/blogArticles';
 import vrLogo from '../assets/images/vr_logo_1784728392393.png';
 
 interface BlogListingPageProps {
-  onNavigate: (page: PageView) => void;
+  onNavigate: (page: PageView, articleId?: string) => void;
 }
 
 export const BlogListingPage: React.FC<BlogListingPageProps> = ({ onNavigate }) => {
@@ -22,51 +23,13 @@ export const BlogListingPage: React.FC<BlogListingPageProps> = ({ onNavigate }) 
     };
   }, []);
 
-  const articlesData = [
-    {
-      id: 'article-1',
-      title: 'Real-Time Tournament Brackets: Building Our Ultra-Low Latency Feed',
-      category: 'services' as const,
-      categoryLabel: 'Services',
-      description: 'Discover how our services team architected a WebSocket-based data layer to ensure tournament brackets update globally in under 50ms during major esports events.',
-      image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=600',
-      author: 'Hassan Noor Soomro',
-      authorInitials: 'HN',
-      date: 'Oct 24',
-      readTime: '6 min',
-    },
-    {
-      id: 'article-2',
-      title: 'The Return of Tactile Play: Flick-and-Shoot Mechanics',
-      category: 'engineering' as const,
-      categoryLabel: 'UI/UX Design',
-      description: 'A deep dive into how our services department translated retro arcade tactile responsiveness into mobile-first web browser controls for FingerFifa.',
-      image: 'https://images.unsplash.com/photo-1560253023-3ec5d502959f?q=80&w=600',
-      author: 'Ahmed Shahab',
-      authorInitials: 'AS',
-      date: 'Oct 18',
-      readTime: '4 min',
-    },
-    {
-      id: 'article-3',
-      title: 'Scaling Cloud Infrastructure for 10K Concurrent Tournament Viewers',
-      category: 'engineering' as const,
-      categoryLabel: 'Engineering',
-      description: 'Balancing server loads and maintaining database integrity when thousands of players submit match scores simultaneously through our enterprise service layer.',
-      image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=600',
-      author: 'Tech Team',
-      authorInitials: '14L',
-      date: 'Oct 12',
-      readTime: '7 min',
-    },
-  ];
-
-  const filteredArticles = articlesData.filter((article) => {
+  const filteredArticles = BLOG_ARTICLES.filter((article) => {
     const matchesCategory = activeCategory === 'all' || article.category === activeCategory;
     const matchesSearch =
       searchQuery.trim() === '' ||
       article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      article.description.toLowerCase().includes(searchQuery.toLowerCase());
+      article.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      article.tags.some(t => t.toLowerCase().includes(searchQuery.toLowerCase()));
     return matchesCategory && matchesSearch;
   });
 
@@ -269,10 +232,10 @@ export const BlogListingPage: React.FC<BlogListingPageProps> = ({ onNavigate }) 
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <button onClick={() => onNavigate('article')} className="btn-gold text-center px-6 py-3 rounded font-bold uppercase tracking-wide text-xs shadow-sm hover:shadow">
+                  <button onClick={() => onNavigate('article', 'ai-virtual-teacher-edtech-pakistan-guide')} className="btn-gold text-center px-6 py-3 rounded font-bold uppercase tracking-wide text-xs shadow-sm hover:shadow">
                     Read Case Study <i className="fa-solid fa-arrow-right-long ml-2"></i>
                   </button>
-                  <button onClick={() => onNavigate('article')} className="px-6 py-3 border border-slate-200 hover:border-gold-500/40 text-slate-700 rounded font-bold uppercase tracking-wide text-xs transition bg-slate-50 hover:bg-gold-500/5">
+                  <button onClick={() => onNavigate('article', 'ai-virtual-teacher-edtech-pakistan-guide')} className="px-6 py-3 border border-slate-200 hover:border-gold-500/40 text-slate-700 rounded font-bold uppercase tracking-wide text-xs transition bg-slate-50 hover:bg-gold-500/5">
                     <i className="fa-solid fa-robot mr-2"></i> Try Demo
                   </button>
                 </div>
@@ -358,7 +321,7 @@ export const BlogListingPage: React.FC<BlogListingPageProps> = ({ onNavigate }) 
                 {filteredArticles.map((article) => (
                   <article
                     key={article.id}
-                    onClick={() => onNavigate('article')}
+                    onClick={() => onNavigate('article', article.id)}
                     className="article-card glass-panel rounded-2xl overflow-hidden card-scale flex flex-col group cursor-pointer"
                   >
                     <div className="relative aspect-video overflow-hidden bg-slate-100">
