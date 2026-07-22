@@ -455,7 +455,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           </h1>
 
           <p className="text-base md:text-xl text-gray-300 max-w-xl md:max-w-3xl mx-auto mb-8 md:mb-10 leading-relaxed font-light fade-in-up px-2" style={{ animationDelay: '0.3s' }}>
-            The 14 Lights Studio presents Pakistan's First Virtual AI Teacher—an advanced conversational AI classroom assistant and adaptive EdTech avatar engineered for multilingual learning in Urdu and English. Empowering educational institutions with personalized AI tutoring, spatial VR simulations, and next-generation interactive learning.
+            Discover Pakistan's first Virtual AI Teacher—an adaptive EdTech platform delivering personalized, multilingual tutoring in Urdu and English with immersive VR learning simulations.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-5 w-full sm:w-auto fade-in-up" style={{ animationDelay: '0.4s' }}>
