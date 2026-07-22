@@ -112,8 +112,8 @@ export const BlogListingPage: React.FC<BlogListingPageProps> = ({ onNavigate }) 
       <nav className="sticky top-0 z-40 nav-glass transition-all duration-300 w-full" id="navbar" aria-label="Global Navigation">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
           <button onClick={() => onNavigate('home')} className="group flex items-center gap-3 text-left focus:outline-none" aria-label="The 14 Lights Studios - Go to Homepage">
-            <div className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded bg-slate-100 border border-slate-200 group-hover:border-gold-500/40 transition">
-              <i className="fa-solid fa-cube text-gold-600 text-xl" aria-hidden="true"></i>
+            <div className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full overflow-hidden bg-slate-900 border border-slate-700 group-hover:border-gold-500/40 transition p-1">
+              <img src="/vr_logo_1784728392393.png" alt="The 14 Lights Studios Logo" className="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300" />
             </div>
             <div className="flex flex-col">
               <span className="text-lg md:text-xl font-display font-bold text-slate-900 tracking-wider leading-none group-hover:text-gold-600 transition">
@@ -481,8 +481,8 @@ export const BlogListingPage: React.FC<BlogListingPageProps> = ({ onNavigate }) 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
             <div className="lg:col-span-2 flex flex-col gap-4">
               <button onClick={() => onNavigate('home')} className="flex items-center gap-3 group text-left">
-                <div className="w-10 h-10 flex items-center justify-center rounded overflow-hidden bg-slate-800 p-1">
-                  <i className="fa-solid fa-cube text-gold-400 text-xl"></i>
+                <div className="w-10 h-10 flex items-center justify-center rounded-full overflow-hidden bg-slate-800 border border-slate-700 p-1">
+                  <img src="/vr_logo_1784728392393.png" alt="The 14 Lights Studios Logo" className="w-full h-full object-contain" />
                 </div>
                 <span className="text-xl font-display font-bold text-white tracking-wider">
                   The<span className="text-gold-400"> 14 Lights</span>

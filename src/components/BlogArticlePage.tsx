@@ -132,9 +132,8 @@ export const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ onNavigate }) 
       <nav className="sticky top-0 z-40 nav-glass transition-all duration-300 w-full" id="navbar" aria-label="Global Navigation">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
           <button onClick={() => onNavigate('home')} className="group flex items-center gap-3 text-left focus:outline-none">
-            <div className="relative w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded bg-gradient-to-br from-gold-500 to-gold-900 shadow-md group-hover:shadow-gold-500/30 transition duration-300">
-              <i className="fa-solid fa-cube text-slate-900 text-sm md:text-lg" aria-hidden="true"></i>
-              <div className="absolute inset-0 border border-white/20 rounded"></div>
+            <div className="relative w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full overflow-hidden bg-slate-900 border border-slate-700 shadow-md group-hover:shadow-gold-500/30 transition duration-300 p-1">
+              <img src="/vr_logo_1784728392393.png" alt="The 14 Lights Studios Logo" className="w-full h-full object-contain" />
             </div>
             <div className="flex flex-col">
               <span className="text-lg md:text-xl font-display font-bold text-slate-900 tracking-wider leading-none group-hover:text-gold-600 transition">
@@ -533,8 +532,10 @@ function initAssetBuffers(gl, meshData) {
       <footer className="bg-slate-50 border-t border-slate-200 pt-12 md:pt-16 pb-8" aria-label="Footer Navigation">
         <div className="max-w-7xl mx-auto px-4 md:px-6 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-10 md:mb-12">
           <div className="col-span-2 md:col-span-1">
-            <button onClick={() => onNavigate('home')} className="flex items-center gap-2 mb-4 md:mb-6 text-left">
-              <i className="fa-solid fa-cube text-gold-600 text-lg md:text-xl" aria-hidden="true"></i>
+            <button onClick={() => onNavigate('home')} className="flex items-center gap-3 mb-4 md:mb-6 text-left">
+              <div className="w-8 h-8 md:w-9 md:h-9 rounded-full overflow-hidden bg-slate-900 border border-slate-700 flex items-center justify-center p-0.5">
+                <img src="/vr_logo_1784728392393.png" alt="The 14 Lights Studios Logo" className="w-full h-full object-contain" />
+              </div>
               <span className="text-lg md:text-xl font-display font-bold text-slate-900 tracking-wider">
                 The<span className="text-gold-600"> 14 Lights</span>
               </span>
