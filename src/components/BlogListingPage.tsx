@@ -113,7 +113,18 @@ export const BlogListingPage: React.FC<BlogListingPageProps> = ({ onNavigate }) 
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
           <button onClick={() => onNavigate('home')} className="group flex items-center gap-3 text-left focus:outline-none" aria-label="The 14 Lights Studios - Go to Homepage">
             <div className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full overflow-hidden bg-slate-900 border border-slate-700 group-hover:border-gold-500/40 transition p-1">
-              <img src="/vr_logo_1784728392393.png" alt="The 14 Lights Studios Logo" className="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300" />
+              <img
+                src="/logo.png"
+                alt="The 14 Lights Studios Logo"
+                className="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  if (!target.dataset.tried) {
+                    target.dataset.tried = 'true';
+                    target.src = '/vr_logo_1784728392393.png';
+                  }
+                }}
+              />
             </div>
             <div className="flex flex-col">
               <span className="text-lg md:text-xl font-display font-bold text-slate-900 tracking-wider leading-none group-hover:text-gold-600 transition">
@@ -482,7 +493,18 @@ export const BlogListingPage: React.FC<BlogListingPageProps> = ({ onNavigate }) 
             <div className="lg:col-span-2 flex flex-col gap-4">
               <button onClick={() => onNavigate('home')} className="flex items-center gap-3 group text-left">
                 <div className="w-10 h-10 flex items-center justify-center rounded-full overflow-hidden bg-slate-800 border border-slate-700 p-1">
-                  <img src="/vr_logo_1784728392393.png" alt="The 14 Lights Studios Logo" className="w-full h-full object-contain" />
+                  <img
+                    src="/logo.png"
+                    alt="The 14 Lights Studios Logo"
+                    className="w-full h-full object-contain"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      if (!target.dataset.tried) {
+                        target.dataset.tried = 'true';
+                        target.src = '/vr_logo_1784728392393.png';
+                      }
+                    }}
+                  />
                 </div>
                 <span className="text-xl font-display font-bold text-white tracking-wider">
                   The<span className="text-gold-400"> 14 Lights</span>
