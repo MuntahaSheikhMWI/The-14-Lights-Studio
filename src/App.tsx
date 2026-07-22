@@ -8,6 +8,9 @@ const BlogListingPage = lazy(() =>
 const ArticleDetailView = lazy(() =>
   import('./components/ArticleDetailView').then((m) => ({ default: m.ArticleDetailView }))
 );
+const PrivacyPolicyPage = lazy(() =>
+  import('./components/PrivacyPolicyPage').then((m) => ({ default: m.PrivacyPolicyPage }))
+);
 
 export default function App() {
   const [currentView, setCurrentView] = useState<PageView>('home');
@@ -18,6 +21,8 @@ export default function App() {
       const hash = window.location.hash;
       if (hash === '#/blog' || hash === '#blog') {
         setCurrentView('blog');
+      } else if (hash === '#/privacy' || hash === '#privacy') {
+        setCurrentView('privacy');
       } else if (hash.startsWith('#/article') || hash.startsWith('#article')) {
         setCurrentView('article');
         const parts = hash.split('/');
@@ -41,6 +46,8 @@ export default function App() {
     }
     if (view === 'blog') {
       window.location.hash = '#/blog';
+    } else if (view === 'privacy') {
+      window.location.hash = '#/privacy';
     } else if (view === 'article') {
       const targetId = articleId || selectedArticleId || 'ai-virtual-teacher-edtech-pakistan-guide';
       window.location.hash = `#/article/${targetId}`;
@@ -55,6 +62,7 @@ export default function App() {
       {currentView === 'home' && <HomePage onNavigate={navigateTo} />}
       {currentView === 'blog' && <BlogListingPage onNavigate={navigateTo} />}
       {currentView === 'article' && <ArticleDetailView articleId={selectedArticleId} onNavigate={navigateTo} />}
+      {currentView === 'privacy' && <PrivacyPolicyPage onNavigate={navigateTo} />}
     </Suspense>
   );
 }

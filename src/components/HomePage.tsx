@@ -346,7 +346,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       <nav className="sticky top-0 z-40 nav-glass transition-all duration-300 w-full" id="navbar" aria-label="Main Navigation">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
           <button onClick={() => onNavigate('home')} className="group flex items-center gap-3 text-left focus:outline-none" aria-label="The 14 Lights Studios - Go to Homepage">
-            <div className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full overflow-hidden bg-black/40 border border-gold-500/30 group-hover:border-gold-500/60 transition p-1">
+            <div className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full overflow-hidden transition p-1">
               <img
                 src={vrLogo}
                 alt="The 14 Lights Studios Logo"
@@ -953,7 +953,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2">
               <button onClick={() => onNavigate('home')} className="inline-flex items-center gap-4 group text-left">
-                <div className="w-14 h-14 rounded-2xl overflow-hidden bg-black/40 border border-gold-500/30 flex items-center justify-center group-hover:border-gold-500/60 transition p-1.5">
+                <div className="w-14 h-14 rounded-2xl overflow-hidden flex items-center justify-center transition p-1.5">
                   <img
                     src={vrLogo}
                     alt="The 14 Lights Studios Logo"
@@ -976,7 +976,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                 <ul className="flex flex-wrap gap-x-8 gap-y-3 text-sm">
                   <li><a href="#about" onClick={(e) => handleNavClick(e, '#about')} className="text-gray-400 hover:text-gold-500 transition">About Us</a></li>
                   <li><a href="#team" onClick={(e) => handleNavClick(e, '#team')} className="text-gray-400 hover:text-gold-500 transition">Careers</a></li>
-                  <li><a href="#" className="text-gray-400 hover:text-gold-500 transition" aria-label="Privacy Policy">Privacy Policy</a></li>
+                  <li><button onClick={() => onNavigate('privacy')} className="text-gray-400 hover:text-gold-500 transition" aria-label="Privacy Policy">Privacy Policy</button></li>
                   <li><a href="#contact" onClick={(e) => handleNavClick(e, '#contact')} className="text-gray-400 hover:text-gold-500 transition">Contact</a></li>
                 </ul>
               </nav>
@@ -1025,7 +1025,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               </p>
               <div className="flex items-center gap-6 text-sm">
                 <a href="#" className="text-gray-400 hover:text-gold-500 transition" aria-label="Terms of Service">Terms of Service</a>
-                <a href="#" className="text-gray-400 hover:text-gold-500 transition" aria-label="Privacy Policy">Privacy Policy</a>
+                <button onClick={() => onNavigate('privacy')} className="text-gray-400 hover:text-gold-500 transition" aria-label="Privacy Policy">Privacy Policy</button>
               </div>
             </div>
           </div>

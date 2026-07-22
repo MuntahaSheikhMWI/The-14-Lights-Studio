@@ -76,7 +76,7 @@ export const BlogListingPage: React.FC<BlogListingPageProps> = ({ onNavigate }) 
       <nav className="sticky top-0 z-40 nav-glass transition-all duration-300 w-full" id="navbar" aria-label="Global Navigation">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
           <button onClick={() => onNavigate('home')} className="group flex items-center gap-3 text-left focus:outline-none" aria-label="The 14 Lights Studios - Go to Homepage">
-            <div className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full overflow-hidden bg-slate-900 border border-slate-700 group-hover:border-gold-500/40 transition p-1">
+            <div className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full overflow-hidden transition p-1">
               <img
                 src={vrLogo}
                 alt="The 14 Lights Studios Logo"
@@ -449,7 +449,7 @@ export const BlogListingPage: React.FC<BlogListingPageProps> = ({ onNavigate }) 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
             <div className="lg:col-span-2 flex flex-col gap-4">
               <button onClick={() => onNavigate('home')} className="flex items-center gap-3 group text-left">
-                <div className="w-10 h-10 flex items-center justify-center rounded-full overflow-hidden bg-slate-800 border border-slate-700 p-1">
+                <div className="w-10 h-10 flex items-center justify-center rounded-full overflow-hidden p-1">
                   <img
                     src={vrLogo}
                     alt="The 14 Lights Studios Logo"
@@ -509,7 +509,7 @@ export const BlogListingPage: React.FC<BlogListingPageProps> = ({ onNavigate }) 
           <div className="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 gap-4">
             <p>&copy; 2026 The 14 Lights Studio. All rights reserved.</p>
             <div className="flex items-center gap-6">
-              <a href="#" className="hover:text-slate-300 transition">Privacy Policy</a>
+              <button onClick={() => onNavigate('privacy')} className="hover:text-slate-300 transition">Privacy Policy</button>
               <a href="#" className="hover:text-slate-300 transition">Terms of Service</a>
               <a href="#" className="hover:text-slate-300 transition">Sitemap</a>
             </div>

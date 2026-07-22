@@ -1,4 +1,4 @@
-export type PageView = 'home' | 'blog' | 'article';
+export type PageView = 'home' | 'blog' | 'article' | 'privacy';
 
 export interface Article {
   id: string;
