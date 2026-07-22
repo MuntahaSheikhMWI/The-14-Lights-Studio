@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { PageView } from '../types';
-import logoImage from '../assets/images/logo.png';
+import vrLogo from '../assets/images/vr_logo_1784728392393.png';
 
 interface HomePageProps {
   onNavigate: (page: PageView) => void;
@@ -348,7 +348,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           <button onClick={() => onNavigate('home')} className="group flex items-center gap-3 text-left focus:outline-none" aria-label="The 14 Lights Studios - Go to Homepage">
             <div className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full overflow-hidden bg-black/40 border border-gold-500/30 group-hover:border-gold-500/60 transition p-1">
               <img
-                src={logoImage}
+                src={vrLogo}
                 alt="The 14 Lights Studios Logo"
                 className="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300"
               />
@@ -955,7 +955,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               <button onClick={() => onNavigate('home')} className="inline-flex items-center gap-4 group text-left">
                 <div className="w-14 h-14 rounded-2xl overflow-hidden bg-black/40 border border-gold-500/30 flex items-center justify-center group-hover:border-gold-500/60 transition p-1.5">
                   <img
-                    src={logoImage}
+                    src={vrLogo}
                     alt="The 14 Lights Studios Logo"
                     className="w-full h-full object-contain"
                   />

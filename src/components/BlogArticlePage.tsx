@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { PageView, CommentItem } from '../types';
-import logoImage from '../assets/images/logo.png';
+import vrLogo from '../assets/images/vr_logo_1784728392393.png';
 
 interface BlogArticlePageProps {
   onNavigate: (page: PageView) => void;
@@ -135,7 +135,7 @@ export const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ onNavigate }) 
           <button onClick={() => onNavigate('home')} className="group flex items-center gap-3 text-left focus:outline-none">
             <div className="relative w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full overflow-hidden bg-slate-900 border border-slate-700 shadow-md group-hover:shadow-gold-500/30 transition duration-300 p-1">
               <img
-                src={logoImage}
+                src={vrLogo}
                 alt="The 14 Lights Studios Logo"
                 className="w-full h-full object-contain"
               />
@@ -540,7 +540,7 @@ function initAssetBuffers(gl, meshData) {
             <button onClick={() => onNavigate('home')} className="flex items-center gap-3 mb-4 md:mb-6 text-left">
               <div className="w-8 h-8 md:w-9 md:h-9 rounded-full overflow-hidden bg-slate-900 border border-slate-700 flex items-center justify-center p-0.5">
                 <img
-                  src={logoImage}
+                  src={vrLogo}
                   alt="The 14 Lights Studios Logo"
                   className="w-full h-full object-contain"
                 />
