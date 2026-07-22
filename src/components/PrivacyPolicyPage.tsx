@@ -224,7 +224,7 @@ export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ onNavigate
               </p>
               <p className="text-slate-300 flex items-center gap-2">
                 <i className="fa-solid fa-globe text-gold-400"></i>
-                Website: <a href="https://the14lights.com" target="_blank" rel="noopener noreferrer" className="text-gold-400 hover:underline">the14lights.com</a>
+                Website: <a href="https://the14lights.com/" target="_blank" rel="noopener noreferrer" className="text-gold-400 hover:underline">https://the14lights.com/</a>
               </p>
             </div>
           </section>
