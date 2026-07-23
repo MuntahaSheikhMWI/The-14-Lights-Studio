@@ -350,6 +350,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               <img
                 src={vrLogo}
                 alt="The 14 Lights Studios Logo"
+                width={48}
+                height={48}
+                decoding="async"
+                fetchpriority="high"
                 className="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300"
               />
             </div>
@@ -517,6 +521,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   <img
                     src={brand.src}
                     alt={brand.name}
+                    width={56}
+                    height={56}
+                    loading="lazy"
+                    decoding="async"
                     className="w-12 h-12 sm:w-14 sm:h-14 object-contain filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] transform group-hover:scale-125 transition-transform duration-300"
                   />
                 </div>
@@ -814,8 +822,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                       <img
                         src={member.img}
                         alt={`${member.name} - ${member.role}`}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        width={160}
+                        height={160}
                         loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         onError={(e) => {
                           (e.target as HTMLImageElement).src = `https://images.unsplash.com/photo-${1534528741775 + idx}?q=80&w=400`;
                         }}
@@ -957,6 +968,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   <img
                     src={vrLogo}
                     alt="The 14 Lights Studios Logo"
+                    width={56}
+                    height={56}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-contain"
                   />
                 </div>

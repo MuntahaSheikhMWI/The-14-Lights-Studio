@@ -137,6 +137,10 @@ export const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ onNavigate }) 
               <img
                 src={vrLogo}
                 alt="The 14 Lights Studios Logo"
+                width={40}
+                height={40}
+                decoding="async"
+                fetchpriority="high"
                 className="w-full h-full object-contain"
               />
             </div>
@@ -542,6 +546,10 @@ function initAssetBuffers(gl, meshData) {
                 <img
                   src={vrLogo}
                   alt="The 14 Lights Studios Logo"
+                  width={36}
+                  height={36}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-contain"
                 />
               </div>

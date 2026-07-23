@@ -80,6 +80,10 @@ export const BlogListingPage: React.FC<BlogListingPageProps> = ({ onNavigate }) 
               <img
                 src={vrLogo}
                 alt="The 14 Lights Studios Logo"
+                width={48}
+                height={48}
+                decoding="async"
+                fetchpriority="high"
                 className="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300"
               />
             </div>
@@ -453,6 +457,10 @@ export const BlogListingPage: React.FC<BlogListingPageProps> = ({ onNavigate }) 
                   <img
                     src={vrLogo}
                     alt="The 14 Lights Studios Logo"
+                    width={40}
+                    height={40}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-contain"
                   />
                 </div>
