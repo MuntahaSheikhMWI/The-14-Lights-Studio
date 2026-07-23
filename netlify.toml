@@ -1,3 +1,27 @@
+[[redirects]]
+  from = "https://www.the14lights.com/*"
+  to = "https://the14lights.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.the14lights.com/*"
+  to = "https://the14lights.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://the14lights.com/*"
+  to = "https://the14lights.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/assets/*"
   [headers.values]
