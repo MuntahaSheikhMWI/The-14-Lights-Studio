@@ -19,7 +19,7 @@ export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ onNavigate
           <button onClick={() => onNavigate('home')} className="group flex items-center gap-3 text-left focus:outline-none" aria-label="The 14 Lights Studios - Go to Homepage">
             <div className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full overflow-hidden transition p-1">
               <img
-                src={vrLogo}
+                src="/favicon.png"
                 alt="The 14 Lights Studios Logo"
                 width={48}
                 height={48}
@@ -27,7 +27,7 @@ export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ onNavigate
                 fetchPriority="high"
                 className="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300"
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = '/vr_logo_1784728392393.png';
+                  (e.target as HTMLImageElement).src = '/favicon.png';
                 }}
               />
             </div>
