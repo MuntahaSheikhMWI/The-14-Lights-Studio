@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { PageView } from '../types';
-import vrLogo from '../assets/VR_LOGO.png';
+import vrLogo from '../assets/VR_LOGO.webp';
 
 interface HomePageProps {
   onNavigate: (page: PageView, articleId?: string) => void;
@@ -359,7 +359,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   className="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300"
                   onError={(e) => {
                     const target = e.currentTarget;
-                    const fallbacks = ['/assets/VR_LOGO.png', '/VR_LOGO.png', '/logo.png', '/favicon.png'];
+                    const fallbacks = ['/assets/VR_LOGO.webp', '/VR_LOGO.webp', '/assets/VR_LOGO.png', '/favicon.png'];
                     const step = parseInt(target.dataset.fallbackStep || '0', 10);
                     if (step < fallbacks.length) {
                       target.dataset.fallbackStep = String(step + 1);
@@ -518,13 +518,13 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               className="flex lg:grid lg:grid-cols-7 lg:gap-6 gap-6 items-center lg:justify-items-center w-full overflow-x-auto lg:overflow-visible [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] py-4 lg:py-0 cursor-grab active:cursor-grabbing lg:cursor-auto"
             >
               {[
-                { name: 'Steam', src: '/platforms/steam.png' },
-                { name: 'Xbox', src: '/platforms/xbox.png' },
-                { name: 'PlayStation', src: '/platforms/playstation.png' },
-                { name: 'Unity', src: '/platforms/unitygame.png' },
-                { name: 'Unreal Engine', src: '/platforms/unrealengine.png' },
-                { name: 'Meta Quest', src: '/platforms/meta.png' },
-                { name: 'NVIDIA', src: '/platforms/nvidia.png' },
+                { name: 'Steam', src: '/platforms/steam.webp' },
+                { name: 'Xbox', src: '/platforms/xbox.webp' },
+                { name: 'PlayStation', src: '/platforms/playstation.webp' },
+                { name: 'Unity', src: '/platforms/unitygame.webp' },
+                { name: 'Unreal Engine', src: '/platforms/unrealengine.webp' },
+                { name: 'Meta Quest', src: '/platforms/meta.webp' },
+                { name: 'NVIDIA', src: '/platforms/nvidia.webp' },
               ].map((brand, idx) => (
                 <div
                   key={idx}
@@ -991,7 +991,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                       className="w-full h-full object-contain"
                       onError={(e) => {
                         const target = e.currentTarget;
-                        const fallbacks = ['/assets/VR_LOGO.png', '/VR_LOGO.png', '/logo.png', '/favicon.png'];
+                        const fallbacks = ['/assets/VR_LOGO.webp', '/VR_LOGO.webp', '/assets/VR_LOGO.png', '/favicon.png'];
                         const step = parseInt(target.dataset.fallbackStep || '0', 10);
                         if (step < fallbacks.length) {
                           target.dataset.fallbackStep = String(step + 1);

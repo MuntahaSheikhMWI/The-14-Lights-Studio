@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { PageView } from '../types';
 import { BLOG_ARTICLES, BlogArticleData } from '../data/blogArticles';
-import vrLogo from '../assets/VR_LOGO.png';
+import vrLogo from '../assets/VR_LOGO.webp';
 
 interface ArticleDetailViewProps {
   articleId?: string;
@@ -131,7 +131,7 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({ articleId,
       "name": "The 14 Lights Studio",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://the14lights.com/VR_LOGO.png"
+        "url": "https://the14lights.com/VR_LOGO.webp"
       }
     },
     "description": article.metaDescription,
@@ -190,7 +190,7 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({ articleId,
                   className="w-full h-full object-contain"
                   onError={(e) => {
                     const target = e.currentTarget;
-                    const fallbacks = ['/assets/VR_LOGO.png', '/VR_LOGO.png', '/logo.png', '/favicon.png'];
+                    const fallbacks = ['/assets/VR_LOGO.webp', '/VR_LOGO.webp', '/assets/VR_LOGO.png', '/favicon.png'];
                     const step = parseInt(target.dataset.fallbackStep || '0', 10);
                     if (step < fallbacks.length) {
                       target.dataset.fallbackStep = String(step + 1);
@@ -814,7 +814,7 @@ void UAICharacterComponent::ConnectToAIServer() {
                       className="w-full h-full object-contain"
                       onError={(e) => {
                         const target = e.currentTarget;
-                        const fallbacks = ['/assets/VR_LOGO.png', '/VR_LOGO.png', '/logo.png', '/favicon.png'];
+                        const fallbacks = ['/assets/VR_LOGO.webp', '/VR_LOGO.webp', '/assets/VR_LOGO.png', '/favicon.png'];
                         const step = parseInt(target.dataset.fallbackStep || '0', 10);
                         if (step < fallbacks.length) {
                           target.dataset.fallbackStep = String(step + 1);
