@@ -164,27 +164,28 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({ articleId,
       <div className="hidden sm:block bg-slate-50 border-b border-slate-200 backdrop-blur-sm relative z-50">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-2 flex items-center justify-between text-xs font-medium tracking-wide text-slate-600">
           <div className="flex items-center gap-6">
-            <span onClick={() => onNavigate('home')} className="flex items-center gap-2 hover:text-gold-600 transition cursor-pointer" role="button" aria-label="Support Desk">
+            <button onClick={() => onNavigate('home')} className="flex items-center gap-2 hover:text-gold-600 transition cursor-pointer text-left font-medium" aria-label="Support Desk - Contact Us">
               <i className="fa-solid fa-headset text-gold-600" aria-hidden="true"></i> Support
-            </span>
+            </button>
             <span className="flex items-center gap-2 font-bold text-slate-800">
               <span className="bg-gold-500/20 text-gold-600 px-2 py-0.5 rounded border border-gold-500/30">NEW</span>
               Pakistan's First Virtual AI Teacher is Live!
             </span>
           </div>
           <div className="flex items-center gap-5">
-            <a href="#" className="hover:text-slate-900 transition" aria-label="Discord Server"><i className="fab fa-discord"></i></a>
-            <a href="#" className="hover:text-slate-900 transition" aria-label="Twitter Profile"><i className="fab fa-twitter"></i></a>
-            <a href="#" className="hover:text-slate-900 transition" aria-label="YouTube Channel"><i className="fab fa-youtube"></i></a>
-            <a href="#" className="hover:text-slate-900 transition" aria-label="LinkedIn Profile"><i className="fab fa-linkedin"></i></a>
+            <a href="https://discord.com" className="hover:text-slate-900 transition flex items-center gap-1" aria-label="Visit our Discord Server" rel="noopener noreferrer" target="_blank"><i className="fab fa-discord" aria-hidden="true"></i><span className="sr-only">Discord</span></a>
+            <a href="https://twitter.com" className="hover:text-slate-900 transition flex items-center gap-1" aria-label="Follow us on Twitter" rel="noopener noreferrer" target="_blank"><i className="fab fa-twitter" aria-hidden="true"></i><span className="sr-only">Twitter</span></a>
+            <a href="https://youtube.com" className="hover:text-slate-900 transition flex items-center gap-1" aria-label="Subscribe to our YouTube Channel" rel="noopener noreferrer" target="_blank"><i className="fab fa-youtube" aria-hidden="true"></i><span className="sr-only">YouTube</span></a>
+            <a href="https://linkedin.com" className="hover:text-slate-900 transition flex items-center gap-1" aria-label="Connect on LinkedIn" rel="noopener noreferrer" target="_blank"><i className="fab fa-linkedin" aria-hidden="true"></i><span className="sr-only">LinkedIn</span></a>
           </div>
         </div>
       </div>
 
-      {/* Global Navbar */}
-      <nav className="sticky top-0 z-40 nav-glass transition-all duration-300 w-full" id="navbar" aria-label="Global Navigation">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
-          <button onClick={() => onNavigate('home')} className="group flex items-center gap-3 text-left focus:outline-none">
+      {/* Global Header & Navbar */}
+      <header className="sticky top-0 z-40 w-full" id="navbar">
+        <nav className="nav-glass transition-all duration-300 w-full" aria-label="Global Navigation">
+          <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
+          <a href="#/" onClick={(e) => { e.preventDefault(); onNavigate('home'); }} className="group flex items-center gap-3 text-left focus:outline-none" aria-label="The 14 Lights Studios - Go to Homepage">
             <div className="relative w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full overflow-hidden transition duration-300 p-1 bg-white ring-2 ring-gold-400/50 shadow-md">
               <picture className="w-full h-full flex items-center justify-center">
                 <source srcSet="/assets/VR_LOGO.webp" type="image/webp" />
@@ -218,7 +219,7 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({ articleId,
                 Studios
               </span>
             </div>
-          </button>
+          </a>
 
           {/* Nav Links */}
           <ul className="hidden lg:flex items-center gap-1">
@@ -254,7 +255,8 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({ articleId,
             </div>
           </div>
         )}
-      </nav>
+        </nav>
+      </header>
 
       {/* Main Container */}
       <main id="main-content" className="relative z-20">
@@ -747,30 +749,35 @@ void UAICharacterComponent::ConnectToAIServer() {
                   Leading system design and product engineering at The 14 Lights Studio, focusing on Pakistan's Virtual AI Teacher and spatial gaming engines.
                 </p>
                 <div className="flex items-center gap-3 text-slate-400 text-xs">
-                  <a href="#" className="hover:text-gold-600 transition"><i className="fab fa-twitter"></i></a>
-                  <a href="#" className="hover:text-gold-600 transition"><i className="fab fa-github"></i></a>
-                  <a href="#" className="hover:text-gold-600 transition"><i className="fab fa-linkedin"></i></a>
+                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Author Twitter Profile" className="hover:text-gold-600 transition"><i className="fab fa-twitter" aria-hidden="true"></i><span className="sr-only">Twitter</span></a>
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="Author GitHub Profile" className="hover:text-gold-600 transition"><i className="fab fa-github" aria-hidden="true"></i><span className="sr-only">GitHub</span></a>
+                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="Author LinkedIn Profile" className="hover:text-gold-600 transition"><i className="fab fa-linkedin" aria-hidden="true"></i><span className="sr-only">LinkedIn</span></a>
                 </div>
               </section>
 
               {/* Related Articles Box */}
               <section className="glass-panel p-6 rounded-2xl border border-slate-200/80" aria-labelledby="related-title">
                 <h3 id="related-title" className="text-xs font-display font-bold text-slate-900 uppercase tracking-wider mb-4 pb-2 border-b border-slate-100 flex items-center gap-2">
-                  <i className="fa-solid fa-newspaper text-gold-600"></i> Related Articles
+                  <i className="fa-solid fa-newspaper text-gold-600" aria-hidden="true"></i> Related Articles
                 </h3>
 
                 <div className="space-y-4">
                   {BLOG_ARTICLES.filter((a) => a.id !== article.id).slice(0, 3).map((rel) => (
                     <article
                       key={rel.id}
-                      onClick={() => onNavigate('article', rel.id)}
-                      className="group cursor-pointer p-3 rounded-xl hover:bg-slate-50 transition border border-transparent hover:border-slate-200"
+                      className="group p-3 rounded-xl hover:bg-slate-50 transition border border-transparent hover:border-slate-200"
                     >
                       <span className="text-[10px] text-gold-600 font-bold uppercase tracking-wider block mb-1">
                         {rel.categoryLabel}
                       </span>
-                      <h4 className="text-xs font-bold text-slate-800 group-hover:text-gold-600 transition leading-snug line-clamp-2">
-                        {rel.title}
+                      <h4 className="text-xs font-bold text-slate-800 leading-snug line-clamp-2">
+                        <a
+                          href={`#/article/${rel.id}`}
+                          onClick={(e) => { e.preventDefault(); onNavigate('article', rel.id); }}
+                          className="group-hover:text-gold-600 transition focus:outline-none focus:underline"
+                        >
+                          {rel.title}
+                        </a>
                       </h4>
                       <span className="text-[10px] text-slate-400 block mt-1">{rel.date} • {rel.readTime}</span>
                     </article>
@@ -854,20 +861,20 @@ void UAICharacterComponent::ConnectToAIServer() {
             </div>
 
             <div className="flex flex-col gap-3">
-              <h3 className="text-white font-display font-bold text-sm tracking-wider uppercase mb-1">Departments</h3>
+              <h2 className="text-white font-display font-bold text-sm tracking-wider uppercase mb-1">Departments</h2>
               <ul className="space-y-2.5 text-sm">
-                <li><button onClick={() => onNavigate('home')} className="hover:text-gold-400 transition flex items-center gap-2"><i className="fa-solid fa-code text-gold-400 text-xs"></i> Services Division</button></li>
-                <li><button onClick={() => onNavigate('article', 'ai-virtual-teacher-edtech-pakistan-guide')} className="hover:text-gold-400 transition flex items-center gap-2"><i className="fa-solid fa-microchip text-gold-400 text-xs"></i> Products Division</button></li>
-                <li><button onClick={() => onNavigate('article', 'ai-virtual-teacher-edtech-pakistan-guide')} className="hover:text-gold-400 transition flex items-center gap-2"><i className="fa-solid fa-robot text-gold-400 text-xs"></i> Virtual AI Teacher</button></li>
+                <li><button onClick={() => onNavigate('home')} className="hover:text-gold-400 transition flex items-center gap-2"><i className="fa-solid fa-code text-gold-400 text-xs" aria-hidden="true"></i> Services Division</button></li>
+                <li><button onClick={() => onNavigate('article', 'ai-virtual-teacher-edtech-pakistan-guide')} className="hover:text-gold-400 transition flex items-center gap-2"><i className="fa-solid fa-microchip text-gold-400 text-xs" aria-hidden="true"></i> Products Division</button></li>
+                <li><button onClick={() => onNavigate('article', 'ai-virtual-teacher-edtech-pakistan-guide')} className="hover:text-gold-400 transition flex items-center gap-2"><i className="fa-solid fa-robot text-gold-400 text-xs" aria-hidden="true"></i> Virtual AI Teacher</button></li>
               </ul>
             </div>
 
             <div className="flex flex-col gap-3">
-              <h3 className="text-white font-display font-bold text-sm tracking-wider uppercase mb-1">Connect</h3>
+              <h2 className="text-white font-display font-bold text-sm tracking-wider uppercase mb-1">Connect</h2>
               <div className="flex items-center gap-4 text-slate-400 mt-2">
-                <a href="#" className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center hover:bg-gold-500 hover:text-slate-900 transition" aria-label="Discord"><i className="fab fa-discord"></i></a>
-                <a href="#" className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center hover:bg-gold-500 hover:text-slate-900 transition" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
-                <a href="#" className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center hover:bg-gold-500 hover:text-slate-900 transition" aria-label="YouTube"><i className="fab fa-youtube"></i></a>
+                <a href="https://discord.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center hover:bg-gold-500 hover:text-slate-900 transition" aria-label="Visit our Discord Server"><i className="fab fa-discord" aria-hidden="true"></i><span className="sr-only">Discord</span></a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center hover:bg-gold-500 hover:text-slate-900 transition" aria-label="Follow us on Twitter"><i className="fab fa-twitter" aria-hidden="true"></i><span className="sr-only">Twitter</span></a>
+                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center hover:bg-gold-500 hover:text-slate-900 transition" aria-label="Subscribe on YouTube"><i className="fab fa-youtube" aria-hidden="true"></i><span className="sr-only">YouTube</span></a>
               </div>
             </div>
           </div>
@@ -876,7 +883,8 @@ void UAICharacterComponent::ConnectToAIServer() {
             <p>&copy; 2026 The 14 Lights Studio. All rights reserved.</p>
             <div className="flex items-center gap-6">
               <button onClick={() => onNavigate('privacy')} className="hover:text-slate-300 transition">Privacy Policy</button>
-              <a href="#" className="hover:text-slate-300 transition">Terms of Service</a>
+              <button onClick={() => onNavigate('privacy')} className="hover:text-slate-300 transition">Terms of Service</button>
+              <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" className="hover:text-slate-300 transition" aria-label="View XML Sitemap">Sitemap</a>
             </div>
           </div>
         </div>

@@ -1,0 +1,24 @@
+# The 14 Lights Studio
+
+> The 14 Lights Studio is a premier game development, spatial computing, and EdTech innovation studio. We engineer high-performance interactive experiences, multiplayer physics engines, and generative AI platforms—including Pakistan's First Virtual AI Teacher.
+
+## Main Pages
+
+- [Home](https://the14lights.com/): Official website for The 14 Lights Studio featuring games, EdTech platforms, leadership, and portfolio.
+- [Blog](https://the14lights.com/#/blog): Technical dispatches, engineering diaries, product breakdowns, and studio news.
+- [Privacy Policy](https://the14lights.com/#/privacy): Privacy policy, cookie usage, and data rights documentation.
+- [Sitemap](https://the14lights.com/sitemap.xml): Complete XML sitemap listing all site pages and blog articles.
+
+## Featured Blog Posts & Engineering Dispatches
+
+- [Pakistan's First Virtual AI Teacher](https://the14lights.com/#/article/ai-virtual-teacher-edtech-pakistan-guide): A comprehensive guide on engineering generative AI tutoring, Urdu-English NLP scaffolding, and sub-100ms spatial MetaHuman synthesis.
+- [Generative AI in Unreal Engine 5 & VR Game Development](https://the14lights.com/#/article/generative-ai-unreal-engine-5-vr-game-development): How spatial computing and generative AI come together for next-generation VR environments.
+- [Crazy FIFA 2026 Engine Architecture](https://the14lights.com/#/article/article-spotlight): Physics optimization, AI decision trees, and realtime rendering in sports simulations.
+- [Soccer Disc League Synchronization](https://the14lights.com/#/article/article-1): Client-side prediction and server-authoritative state syncing in physics-driven multiplayer.
+- [VR & Spatial Computing Principles](https://the14lights.com/#/article/article-2): Spatial UI design, haptic feedback integration, and ergonomic virtual reality interactions.
+- [Scalable EdTech Infrastructure](https://the14lights.com/#/article/article-3): Building low-latency AI streaming and resilient learning platforms for emerging markets.
+
+## System & Information
+
+- [Ads.txt](https://the14lights.com/ads.txt): Authorized digital sellers manifest.
+- [Robots.txt](https://the14lights.com/robots.txt): Web crawler and search indexer configuration.

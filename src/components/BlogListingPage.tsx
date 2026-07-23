@@ -55,27 +55,28 @@ export const BlogListingPage: React.FC<BlogListingPageProps> = ({ onNavigate }) 
       <div className="hidden sm:block bg-slate-50 border-b border-slate-200 backdrop-blur-sm relative z-50">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-2 flex items-center justify-between text-xs font-medium tracking-wide text-slate-600">
           <div className="flex items-center gap-6">
-            <span className="flex items-center gap-2 hover:text-gold-600 transition cursor-pointer" role="button" aria-label="Support Desk">
+            <button onClick={() => onNavigate('home')} className="flex items-center gap-2 hover:text-gold-600 transition cursor-pointer text-left font-medium" aria-label="Support Desk - Contact Us">
               <i className="fa-solid fa-headset text-gold-600" aria-hidden="true"></i> Support
-            </span>
+            </button>
             <span className="flex items-center gap-2 font-bold text-slate-800">
               <span className="bg-gold-500/20 text-gold-600 px-2 py-0.5 rounded border border-gold-500/30">NEW</span>
               Pakistan's First Virtual AI Teacher is Live!
             </span>
           </div>
           <div className="flex items-center gap-5">
-            <a href="#" className="hover:text-slate-900 transition" aria-label="Discord Server" rel="noopener noreferrer" target="_blank"><i className="fab fa-discord"></i></a>
-            <a href="#" className="hover:text-slate-900 transition" aria-label="Twitter Profile" rel="noopener noreferrer" target="_blank"><i className="fab fa-twitter"></i></a>
-            <a href="#" className="hover:text-slate-900 transition" aria-label="YouTube Channel" rel="noopener noreferrer" target="_blank"><i className="fab fa-youtube"></i></a>
-            <a href="#" className="hover:text-slate-900 transition" aria-label="LinkedIn Profile" rel="noopener noreferrer" target="_blank"><i className="fab fa-linkedin"></i></a>
+            <a href="https://discord.com" className="hover:text-slate-900 transition flex items-center gap-1" aria-label="Visit our Discord Server" rel="noopener noreferrer" target="_blank"><i className="fab fa-discord" aria-hidden="true"></i><span className="sr-only">Discord</span></a>
+            <a href="https://twitter.com" className="hover:text-slate-900 transition flex items-center gap-1" aria-label="Follow us on Twitter" rel="noopener noreferrer" target="_blank"><i className="fab fa-twitter" aria-hidden="true"></i><span className="sr-only">Twitter</span></a>
+            <a href="https://youtube.com" className="hover:text-slate-900 transition flex items-center gap-1" aria-label="Subscribe to our YouTube Channel" rel="noopener noreferrer" target="_blank"><i className="fab fa-youtube" aria-hidden="true"></i><span className="sr-only">YouTube</span></a>
+            <a href="https://linkedin.com" className="hover:text-slate-900 transition flex items-center gap-1" aria-label="Connect on LinkedIn" rel="noopener noreferrer" target="_blank"><i className="fab fa-linkedin" aria-hidden="true"></i><span className="sr-only">LinkedIn</span></a>
           </div>
         </div>
       </div>
 
-      {/* Navigation */}
-      <nav className="sticky top-0 z-40 nav-glass transition-all duration-300 w-full" id="navbar" aria-label="Global Navigation">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
-          <button onClick={() => onNavigate('home')} className="group flex items-center gap-3 text-left focus:outline-none" aria-label="The 14 Lights Studios - Go to Homepage">
+      {/* Header & Global Navigation */}
+      <header className="sticky top-0 z-40 w-full" id="navbar">
+        <nav className="nav-glass transition-all duration-300 w-full" aria-label="Global Navigation">
+          <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
+          <a href="#/" onClick={(e) => { e.preventDefault(); onNavigate('home'); }} className="group flex items-center gap-3 text-left focus:outline-none" aria-label="The 14 Lights Studios - Go to Homepage">
             <div className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full overflow-hidden transition p-1 bg-white ring-2 ring-gold-400/50 shadow-md">
               <picture className="w-full h-full flex items-center justify-center">
                 <source srcSet="/assets/VR_LOGO.webp" type="image/webp" />
@@ -109,7 +110,7 @@ export const BlogListingPage: React.FC<BlogListingPageProps> = ({ onNavigate }) 
                 Studios
               </span>
             </div>
-          </button>
+          </a>
 
           {/* Menu Links */}
           <ul className="hidden lg:flex items-center gap-1">
@@ -176,15 +177,18 @@ export const BlogListingPage: React.FC<BlogListingPageProps> = ({ onNavigate }) 
                 Blog
               </button>
               <button onClick={() => { onNavigate('home'); setMobileMenuOpen(false); }} className="text-left text-gold-600 font-bold mt-2 flex items-center gap-2">
-                Partner With Us <i className="fa-solid fa-arrow-right"></i>
+                Partner With Us <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
               </button>
             </div>
           </div>
         )}
-      </nav>
+        </nav>
+      </header>
 
       {/* Main Content Wrapper */}
       <main id="main-content" className="relative z-20">
+        <h1 className="sr-only">The 14 Lights Studio - Blog & Technical Dispatches</h1>
+
         {/* Blog Hero: Product Spotlight */}
         <section className="relative pt-2 pb-16 md:py-8 overflow-hidden" aria-labelledby="featured-story-title">
           <div className="max-w-7xl mx-auto px-4 md:px-6">
@@ -339,20 +343,30 @@ export const BlogListingPage: React.FC<BlogListingPageProps> = ({ onNavigate }) 
                 {filteredArticles.map((article) => (
                   <article
                     key={article.id}
-                    onClick={() => onNavigate('article', article.id)}
-                    className="article-card glass-panel rounded-2xl overflow-hidden card-scale flex flex-col group cursor-pointer"
+                    className="article-card glass-panel rounded-2xl overflow-hidden card-scale flex flex-col group"
                   >
-                    <div className="relative aspect-video overflow-hidden bg-slate-100">
+                    <a
+                      href={`#/article/${article.id}`}
+                      onClick={(e) => { e.preventDefault(); onNavigate('article', article.id); }}
+                      className="relative aspect-video overflow-hidden bg-slate-100 block"
+                      aria-label={`Read article: ${article.title}`}
+                    >
                       <img src={article.image} alt={article.title} className="w-full h-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
                       <div className="absolute top-3 left-3">
                         <span className="px-2 py-1 bg-white/90 backdrop-blur text-slate-900 text-[10px] font-bold uppercase tracking-wider rounded border border-slate-200">
                           {article.categoryLabel}
                         </span>
                       </div>
-                    </div>
+                    </a>
                     <div className="p-5 flex flex-col flex-grow">
-                      <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-gold-600 transition leading-snug">
-                        {article.title}
+                      <h3 className="text-lg font-bold text-slate-900 mb-2 leading-snug">
+                        <a
+                          href={`#/article/${article.id}`}
+                          onClick={(e) => { e.preventDefault(); onNavigate('article', article.id); }}
+                          className="hover:text-gold-600 transition focus:outline-none focus:underline"
+                        >
+                          {article.title}
+                        </a>
                       </h3>
                       <p className="text-xs text-slate-600 line-clamp-3 mb-4 flex-grow">
                         {article.description}
@@ -500,15 +514,15 @@ export const BlogListingPage: React.FC<BlogListingPageProps> = ({ onNavigate }) 
                 Pioneering digital excellence through premium high-performance services and groundbreaking proprietary products, including Pakistan's First Virtual AI Teacher.
               </p>
               <div className="flex items-center gap-4 text-slate-400 mt-2">
-                <a href="#" className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center hover:bg-gold-500 hover:text-slate-900 transition" aria-label="Discord"><i className="fab fa-discord"></i></a>
-                <a href="#" className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center hover:bg-gold-500 hover:text-slate-900 transition" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
-                <a href="#" className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center hover:bg-gold-500 hover:text-slate-900 transition" aria-label="YouTube"><i className="fab fa-youtube"></i></a>
-                <a href="#" className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center hover:bg-gold-500 hover:text-slate-900 transition" aria-label="LinkedIn"><i className="fab fa-linkedin"></i></a>
+                <a href="https://discord.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center hover:bg-gold-500 hover:text-slate-900 transition" aria-label="Visit our Discord Server"><i className="fab fa-discord" aria-hidden="true"></i><span className="sr-only">Discord</span></a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center hover:bg-gold-500 hover:text-slate-900 transition" aria-label="Follow us on Twitter"><i className="fab fa-twitter" aria-hidden="true"></i><span className="sr-only">Twitter</span></a>
+                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center hover:bg-gold-500 hover:text-slate-900 transition" aria-label="Subscribe on YouTube"><i className="fab fa-youtube" aria-hidden="true"></i><span className="sr-only">YouTube</span></a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center hover:bg-gold-500 hover:text-slate-900 transition" aria-label="Connect on LinkedIn"><i className="fab fa-linkedin" aria-hidden="true"></i><span className="sr-only">LinkedIn</span></a>
               </div>
             </div>
 
             <div className="flex flex-col gap-3">
-              <h3 className="text-white font-display font-bold text-sm tracking-wider uppercase mb-1">Navigation</h3>
+              <h2 className="text-white font-display font-bold text-sm tracking-wider uppercase mb-1">Navigation</h2>
               <ul className="space-y-2.5 text-sm">
                 <li><button onClick={() => onNavigate('home')} className="hover:text-gold-400 transition">Home</button></li>
                 <li><button onClick={() => onNavigate('home')} className="hover:text-gold-400 transition">Services</button></li>
@@ -519,16 +533,16 @@ export const BlogListingPage: React.FC<BlogListingPageProps> = ({ onNavigate }) 
             </div>
 
             <div className="flex flex-col gap-3">
-              <h3 className="text-white font-display font-bold text-sm tracking-wider uppercase mb-1">Departments</h3>
+              <h2 className="text-white font-display font-bold text-sm tracking-wider uppercase mb-1">Departments</h2>
               <ul className="space-y-2.5 text-sm">
-                <li><button onClick={() => onNavigate('home')} className="hover:text-gold-400 transition flex items-center gap-2"><i className="fa-solid fa-code text-gold-400 text-xs"></i> Services Division</button></li>
-                <li><button onClick={() => onNavigate('article')} className="hover:text-gold-400 transition flex items-center gap-2"><i className="fa-solid fa-microchip text-gold-400 text-xs"></i> Products Division</button></li>
-                <li><button onClick={() => onNavigate('article')} className="hover:text-gold-400 transition flex items-center gap-2"><i className="fa-solid fa-robot text-gold-400 text-xs"></i> Virtual AI Teacher</button></li>
+                <li><button onClick={() => onNavigate('home')} className="hover:text-gold-400 transition flex items-center gap-2"><i className="fa-solid fa-code text-gold-400 text-xs" aria-hidden="true"></i> Services Division</button></li>
+                <li><button onClick={() => onNavigate('article')} className="hover:text-gold-400 transition flex items-center gap-2"><i className="fa-solid fa-microchip text-gold-400 text-xs" aria-hidden="true"></i> Products Division</button></li>
+                <li><button onClick={() => onNavigate('article')} className="hover:text-gold-400 transition flex items-center gap-2"><i className="fa-solid fa-robot text-gold-400 text-xs" aria-hidden="true"></i> Virtual AI Teacher</button></li>
               </ul>
             </div>
 
             <div className="flex flex-col gap-3">
-              <h3 className="text-white font-display font-bold text-sm tracking-wider uppercase mb-1">Stay Updated</h3>
+              <h2 className="text-white font-display font-bold text-sm tracking-wider uppercase mb-1">Stay Updated</h2>
               <p className="text-xs text-slate-400">Subscribe to our newsletter for product releases and tech deep-dives.</p>
               <form className="flex flex-col gap-2 mt-1" onSubmit={handleNewsletterSubmit}>
                 <input
@@ -546,8 +560,8 @@ export const BlogListingPage: React.FC<BlogListingPageProps> = ({ onNavigate }) 
             <p>&copy; 2026 The 14 Lights Studio. All rights reserved.</p>
             <div className="flex items-center gap-6">
               <button onClick={() => onNavigate('privacy')} className="hover:text-slate-300 transition">Privacy Policy</button>
-              <a href="#" className="hover:text-slate-300 transition">Terms of Service</a>
-              <a href="#" className="hover:text-slate-300 transition">Sitemap</a>
+              <button onClick={() => onNavigate('privacy')} className="hover:text-slate-300 transition">Terms of Service</button>
+              <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" className="hover:text-slate-300 transition" aria-label="View XML Sitemap">Sitemap</a>
             </div>
           </div>
         </div>
