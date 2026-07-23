@@ -188,7 +188,7 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({ articleId,
                 className="w-full h-full object-contain"
                 onError={(e) => {
                   const target = e.currentTarget;
-                  const fallbacks = ['/VR_LOGO.png', '/logo.png', '/favicon.png', '/assets/VR_LOGO.png'];
+                  const fallbacks = ['/assets/VR_LOGO.png', '/VR_LOGO.png', '/logo.png', '/favicon.png'];
                   const step = parseInt(target.dataset.fallbackStep || '0', 10);
                   if (step < fallbacks.length) {
                     target.dataset.fallbackStep = String(step + 1);
@@ -809,7 +809,7 @@ void UAICharacterComponent::ConnectToAIServer() {
                     className="w-full h-full object-contain"
                     onError={(e) => {
                       const target = e.currentTarget;
-                      const fallbacks = ['/VR_LOGO.png', '/logo.png', '/favicon.png', '/assets/VR_LOGO.png'];
+                      const fallbacks = ['/assets/VR_LOGO.png', '/VR_LOGO.png', '/logo.png', '/favicon.png'];
                       const step = parseInt(target.dataset.fallbackStep || '0', 10);
                       if (step < fallbacks.length) {
                         target.dataset.fallbackStep = String(step + 1);
