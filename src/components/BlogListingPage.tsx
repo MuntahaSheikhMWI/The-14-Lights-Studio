@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { PageView } from '../types';
 import { BLOG_ARTICLES, BlogArticleData } from '../data/blogArticles';
-import vrLogo from '../assets/images/vr_logo_1784728392393.png';
+import vrLogo from '../assets/images/VR_LOGO.png';
 
 interface BlogListingPageProps {
   onNavigate: (page: PageView, articleId?: string) => void;
@@ -87,7 +87,7 @@ export const BlogListingPage: React.FC<BlogListingPageProps> = ({ onNavigate }) 
                 className="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300"
                 onError={(e) => {
                   const target = e.currentTarget;
-                  const fallbacks = ['/logo.png', '/favicon.png', '/vr_logo_1784728392393.png', '/assets/logo.png'];
+                  const fallbacks = ['/VR_LOGO.png', '/logo.png', '/favicon.png', '/vr_logo_1784728392393.png', '/assets/VR_LOGO.png'];
                   const step = parseInt(target.dataset.fallbackStep || '0', 10);
                   if (step < fallbacks.length) {
                     target.dataset.fallbackStep = String(step + 1);
@@ -475,7 +475,7 @@ export const BlogListingPage: React.FC<BlogListingPageProps> = ({ onNavigate }) 
                     className="w-full h-full object-contain"
                     onError={(e) => {
                       const target = e.currentTarget;
-                      const fallbacks = ['/logo.png', '/favicon.png', '/vr_logo_1784728392393.png', '/assets/logo.png'];
+                      const fallbacks = ['/VR_LOGO.png', '/logo.png', '/favicon.png', '/vr_logo_1784728392393.png', '/assets/VR_LOGO.png'];
                       const step = parseInt(target.dataset.fallbackStep || '0', 10);
                       if (step < fallbacks.length) {
                         target.dataset.fallbackStep = String(step + 1);
