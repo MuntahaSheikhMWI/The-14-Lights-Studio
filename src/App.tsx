@@ -13,6 +13,9 @@ const ArticleDetailView = lazy(() =>
 const PrivacyPolicyPage = lazy(() =>
   import('./components/PrivacyPolicyPage').then((m) => ({ default: m.PrivacyPolicyPage }))
 );
+const NotFoundPage = lazy(() =>
+  import('./components/NotFoundPage').then((m) => ({ default: m.NotFoundPage }))
+);
 
 export default function App() {
   const [currentView, setCurrentView] = useState<PageView>('home');
@@ -31,8 +34,13 @@ export default function App() {
         if (parts.length > 2 && parts[2]) {
           setSelectedArticleId(parts[2]);
         }
-      } else {
+      } else if (hash === '#/404' || hash === '#404') {
+        setCurrentView('404');
+      } else if (!hash || hash === '#/' || hash === '#') {
         setCurrentView('home');
+      } else {
+        // Unknown hash route -> show 404 page
+        setCurrentView('404');
       }
     };
 
@@ -53,6 +61,8 @@ export default function App() {
     } else if (view === 'article') {
       const targetId = articleId || selectedArticleId || 'ai-virtual-teacher-edtech-pakistan-guide';
       window.location.hash = `#/article/${targetId}`;
+    } else if (view === '404') {
+      window.location.hash = '#/404';
     } else {
       window.location.hash = '#/';
     }
@@ -65,6 +75,7 @@ export default function App() {
       {currentView === 'blog' && <BlogListingPage onNavigate={navigateTo} />}
       {currentView === 'article' && <ArticleDetailView articleId={selectedArticleId} onNavigate={navigateTo} />}
       {currentView === 'privacy' && <PrivacyPolicyPage onNavigate={navigateTo} />}
+      {currentView === '404' && <NotFoundPage onNavigate={navigateTo} />}
     </Suspense>
   );
 }

@@ -238,7 +238,7 @@ export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ onNavigate
               <p className="font-bold text-white text-base">The 14 Lights</p>
               <p className="text-slate-300 flex items-center gap-2">
                 <i className="fa-solid fa-envelope text-gold-400"></i>
-                Email: <a href="mailto:hello@the14lights.com" className="text-gold-400 hover:underline">hello@the14lights.com</a>
+                Email: <a href="#" onClick={(e) => { e.preventDefault(); const u = 'hello'; const d = 'the14lights.com'; window.location.href = `mailto:${u}@${d}`; }} className="text-gold-400 hover:underline cursor-pointer" aria-label="Send Email to The 14 Lights">Email Us</a>
               </p>
               <p className="text-slate-300 flex items-center gap-2">
                 <i className="fa-solid fa-globe text-gold-400"></i>

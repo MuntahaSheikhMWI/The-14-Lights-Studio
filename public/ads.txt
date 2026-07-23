@@ -1,0 +1,10 @@
+# ads.txt file for the14lights.com
+# IAB Tech Lab Authorized Digital Sellers Specification
+# Owner: The 14 Lights Studio (https://the14lights.com)
+
+# Contact Information
+# Contact=hello@the14lights.com
+
+# Google AdSense / Ad Exchange Authorized Sellers
+# Replace pub-0000000000000000 with your Google Publisher ID when active
+google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0

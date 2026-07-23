@@ -1032,13 +1032,13 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             <div>
               <h3 className="text-white text-lg font-semibold mb-6">Contact Information</h3>
               <div className="space-y-5">
-                <a href="mailto:hello@the14lights.com" className="flex items-start gap-4 group">
+                <a href="#" onClick={(e) => { e.preventDefault(); const u = 'hello'; const d = 'the14lights.com'; window.location.href = `mailto:${u}@${d}`; }} className="flex items-start gap-4 group cursor-pointer" aria-label="Email Us">
                   <div className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gold-500 group-hover:bg-gold-500 group-hover:text-black transition">
                     <i className="fa-solid fa-envelope"></i>
                   </div>
                   <div>
                     <p className="text-xs uppercase tracking-widest text-gray-400">Email</p>
-                    <p className="text-white text-sm group-hover:text-gold-500 transition">hello@the14lights.com</p>
+                    <p className="text-white text-sm group-hover:text-gold-500 transition">Email Us</p>
                   </div>
                 </a>
 

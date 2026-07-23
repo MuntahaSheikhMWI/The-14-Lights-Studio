@@ -1,0 +1,29 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Serve custom 404 page with real HTTP 404 status
+  ErrorDocument 404 /404.html
+
+  # 1. Enforce HTTPS & Non-WWW Canonical Domain in a Single Hop
+  RewriteCond %{HTTP_HOST} ^www\.the14lights\.com$ [NC,OR]
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^(.*)$ https://the14lights.com/$1 [R=301,L]
+
+  # 2. Direct 301 Redirect for index.html to root
+  RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/ [NC]
+  RewriteRule ^index\.html$ https://the14lights.com/ [R=301,L]
+
+  # 3. SPA Fallback routing for React Router / client-side navigation
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# Security & HSTS Header Configuration for Hostinger (Apache / LiteSpeed)
+<IfModule mod_headers.c>
+  # Set HSTS Header globally with max-age 1 year, includeSubDomains, and preload
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+</IfModule>
+
