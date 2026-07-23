@@ -515,7 +515,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             <div
               ref={brandsSliderRef}
               id="brandsSlider"
-              className="flex lg:grid lg:grid-cols-7 lg:gap-6 gap-6 items-center lg:justify-items-center w-full overflow-x-auto lg:overflow-visible [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] py-4 lg:py-0 cursor-grab active:cursor-grabbing lg:cursor-auto"
+              className="flex lg:grid lg:grid-cols-9 lg:gap-4 gap-6 items-center lg:justify-items-center w-full overflow-x-auto lg:overflow-visible [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] py-4 lg:py-0 cursor-grab active:cursor-grabbing lg:cursor-auto"
             >
               {[
                 { name: 'Steam', src: '/platforms/steam.webp' },
@@ -525,6 +525,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                 { name: 'Unreal Engine', src: '/platforms/unrealengine.webp' },
                 { name: 'Meta Quest', src: '/platforms/meta.webp' },
                 { name: 'NVIDIA', src: '/platforms/nvidia.webp' },
+                { name: 'Autodesk', src: '/platforms/autodesk.webp' },
+                { name: 'Blender', src: '/platforms/blander.webp' },
               ].map((brand, idx) => (
                 <div
                   key={idx}
