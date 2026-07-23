@@ -353,7 +353,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                 width={48}
                 height={48}
                 decoding="async"
-                fetchpriority="high"
+                fetchPriority="high"
                 className="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300"
               />
             </div>

@@ -140,7 +140,7 @@ export const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ onNavigate }) 
                 width={40}
                 height={40}
                 decoding="async"
-                fetchpriority="high"
+                fetchPriority="high"
                 className="w-full h-full object-contain"
               />
             </div>
