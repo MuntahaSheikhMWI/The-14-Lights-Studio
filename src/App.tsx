@@ -1,7 +1,9 @@
 import { useEffect, useState, lazy, Suspense } from 'react';
-import { HomePage } from './components/HomePage';
 import { PageView } from './types';
 
+const HomePage = lazy(() =>
+  import('./components/HomePage').then((m) => ({ default: m.HomePage }))
+);
 const BlogListingPage = lazy(() =>
   import('./components/BlogListingPage').then((m) => ({ default: m.BlogListingPage }))
 );

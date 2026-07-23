@@ -53,23 +53,31 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({ articleId,
 
   // Scroll handler for reading progress & scrollspy
   useEffect(() => {
-    const handleScroll = () => {
-      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      if (height > 0) {
-        setScrollProgress((winScroll / height) * 100);
-      }
+    let ticking = false;
 
-      if (article.sections) {
-        for (const sec of article.sections) {
-          const elem = document.getElementById(sec.id);
-          if (elem) {
-            const rect = elem.getBoundingClientRect();
-            if (rect.top <= 220 && rect.bottom >= 0) {
-              setActiveSection(sec.id);
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+          const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          if (height > 0) {
+            setScrollProgress((winScroll / height) * 100);
+          }
+
+          if (article.sections) {
+            for (const sec of article.sections) {
+              const elem = document.getElementById(sec.id);
+              if (elem) {
+                const rect = elem.getBoundingClientRect();
+                if (rect.top <= 220 && rect.bottom >= 0) {
+                  setActiveSection(sec.id);
+                }
+              }
             }
           }
-        }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 

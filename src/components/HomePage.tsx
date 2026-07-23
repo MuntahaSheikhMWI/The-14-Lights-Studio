@@ -158,8 +158,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
     const updateDimensions = () => {
       if (slider) {
-        maxScroll = slider.scrollWidth / 2 || 1000;
-        currentScroll = slider.scrollLeft;
+        requestAnimationFrame(() => {
+          maxScroll = slider.scrollWidth / 2 || 1000;
+          currentScroll = slider.scrollLeft;
+        });
       }
       isMobileView = window.innerWidth < 1024;
     };
@@ -195,7 +197,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
     const pauseAutoScroll = () => {
       autoScroll = false;
-      if (slider) currentScroll = slider.scrollLeft;
       clearTimeout(resumeTimeout);
       resumeTimeout = setTimeout(() => {
         if (slider) updateDimensions();
@@ -206,7 +207,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
     slider.addEventListener('touchstart', pauseAutoScroll, { passive: true });
     slider.addEventListener('touchmove', pauseAutoScroll, { passive: true });
     slider.addEventListener('wheel', pauseAutoScroll, { passive: true });
-    slider.addEventListener('mousedown', pauseAutoScroll);
+    slider.addEventListener('mousedown', pauseAutoScroll, { passive: true });
 
     return () => {
       window.removeEventListener('resize', handleResize);
@@ -238,8 +239,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
     const updateDimensions = () => {
       if (slider) {
-        maxScroll = slider.scrollWidth / 2 || 1000;
-        currentScroll = slider.scrollLeft;
+        requestAnimationFrame(() => {
+          maxScroll = slider.scrollWidth / 2 || 1000;
+          currentScroll = slider.scrollLeft;
+        });
       }
       isMobileView = window.innerWidth < 1024;
     };
@@ -275,7 +278,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
     const pauseAutoScroll = () => {
       autoScroll = false;
-      if (slider) currentScroll = slider.scrollLeft;
       clearTimeout(resumeTimeout);
       resumeTimeout = setTimeout(() => {
         if (slider) updateDimensions();
@@ -286,7 +288,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
     slider.addEventListener('touchstart', pauseAutoScroll, { passive: true });
     slider.addEventListener('touchmove', pauseAutoScroll, { passive: true });
     slider.addEventListener('wheel', pauseAutoScroll, { passive: true });
-    slider.addEventListener('mousedown', pauseAutoScroll);
+    slider.addEventListener('mousedown', pauseAutoScroll, { passive: true });
 
     return () => {
       window.removeEventListener('resize', handleResize);

@@ -45,23 +45,31 @@ export const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ onNavigate }) 
 
   // Scroll handler for reading progress & scrollspy
   useEffect(() => {
-    const handleScroll = () => {
-      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      if (height > 0) {
-        setScrollProgress((winScroll / height) * 100);
-      }
+    let ticking = false;
 
-      // Scrollspy logic
-      const sectionIds = ['section-1', 'section-2', 'section-3', 'section-4'];
-      for (const id of sectionIds) {
-        const elem = document.getElementById(id);
-        if (elem) {
-          const rect = elem.getBoundingClientRect();
-          if (rect.top <= 200 && rect.bottom >= 0) {
-            setActiveSection(id);
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+          const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          if (height > 0) {
+            setScrollProgress((winScroll / height) * 100);
           }
-        }
+
+          // Scrollspy logic
+          const sectionIds = ['section-1', 'section-2', 'section-3', 'section-4'];
+          for (const id of sectionIds) {
+            const elem = document.getElementById(id);
+            if (elem) {
+              const rect = elem.getBoundingClientRect();
+              if (rect.top <= 200 && rect.bottom >= 0) {
+                setActiveSection(id);
+              }
+            }
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 

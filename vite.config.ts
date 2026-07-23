@@ -17,8 +17,16 @@ export default defineConfig(() => {
       minify: 'esbuild' as const,
       rollupOptions: {
         output: {
-          manualChunks: {
-            vendor: ['react', 'react-dom'],
+          manualChunks(id) {
+            if (id.includes('node_modules')) {
+              if (id.includes('react') || id.includes('react-dom')) {
+                return 'vendor';
+              }
+              return 'deps';
+            }
+            if (id.includes('blogArticles')) {
+              return 'blog-data';
+            }
           },
         },
       },
