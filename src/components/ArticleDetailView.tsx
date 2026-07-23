@@ -178,26 +178,29 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({ articleId,
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
           <button onClick={() => onNavigate('home')} className="group flex items-center gap-3 text-left focus:outline-none">
             <div className="relative w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full overflow-hidden transition duration-300 p-1 bg-white ring-2 ring-gold-400/50 shadow-md">
-              <img
-                src={vrLogo}
-                alt="The 14 Lights Studios Logo"
-                width={40}
-                height={40}
-                decoding="async"
-                fetchPriority="high"
-                className="w-full h-full object-contain"
-                onError={(e) => {
-                  const target = e.currentTarget;
-                  const fallbacks = ['/assets/VR_LOGO.png', '/VR_LOGO.png', '/logo.png', '/favicon.png'];
-                  const step = parseInt(target.dataset.fallbackStep || '0', 10);
-                  if (step < fallbacks.length) {
-                    target.dataset.fallbackStep = String(step + 1);
-                    target.src = fallbacks[step];
-                  } else {
-                    target.onerror = null;
-                  }
-                }}
-              />
+              <picture className="w-full h-full flex items-center justify-center">
+                <source srcSet="/assets/VR_LOGO.webp" type="image/webp" />
+                <img
+                  src={vrLogo}
+                  alt="The 14 Lights Studios Logo"
+                  width={40}
+                  height={40}
+                  decoding="async"
+                  fetchPriority="high"
+                  className="w-full h-full object-contain"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    const fallbacks = ['/assets/VR_LOGO.png', '/VR_LOGO.png', '/logo.png', '/favicon.png'];
+                    const step = parseInt(target.dataset.fallbackStep || '0', 10);
+                    if (step < fallbacks.length) {
+                      target.dataset.fallbackStep = String(step + 1);
+                      target.src = fallbacks[step];
+                    } else {
+                      target.onerror = null;
+                    }
+                  }}
+                />
+              </picture>
             </div>
             <div className="flex flex-col">
               <span className="text-lg md:text-xl font-display font-bold text-slate-900 tracking-wider leading-none group-hover:text-gold-600 transition">
@@ -799,26 +802,29 @@ void UAICharacterComponent::ConnectToAIServer() {
             <div className="lg:col-span-2 flex flex-col gap-4">
               <button onClick={() => onNavigate('home')} className="flex items-center gap-3 group text-left">
                 <div className="w-10 h-10 flex items-center justify-center rounded-full overflow-hidden p-1 bg-white ring-2 ring-gold-400/40 shadow-md">
-                  <img
-                    src={vrLogo}
-                    alt="The 14 Lights Studios Logo"
-                    width={40}
-                    height={40}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-contain"
-                    onError={(e) => {
-                      const target = e.currentTarget;
-                      const fallbacks = ['/assets/VR_LOGO.png', '/VR_LOGO.png', '/logo.png', '/favicon.png'];
-                      const step = parseInt(target.dataset.fallbackStep || '0', 10);
-                      if (step < fallbacks.length) {
-                        target.dataset.fallbackStep = String(step + 1);
-                        target.src = fallbacks[step];
-                      } else {
-                        target.onerror = null;
-                      }
-                    }}
-                  />
+                  <picture className="w-full h-full flex items-center justify-center">
+                    <source srcSet="/assets/VR_LOGO.webp" type="image/webp" />
+                    <img
+                      src={vrLogo}
+                      alt="The 14 Lights Studios Logo"
+                      width={40}
+                      height={40}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-contain"
+                      onError={(e) => {
+                        const target = e.currentTarget;
+                        const fallbacks = ['/assets/VR_LOGO.png', '/VR_LOGO.png', '/logo.png', '/favicon.png'];
+                        const step = parseInt(target.dataset.fallbackStep || '0', 10);
+                        if (step < fallbacks.length) {
+                          target.dataset.fallbackStep = String(step + 1);
+                          target.src = fallbacks[step];
+                        } else {
+                          target.onerror = null;
+                        }
+                      }}
+                    />
+                  </picture>
                 </div>
                 <span className="text-xl font-display font-bold text-white tracking-wider">
                   The<span className="text-gold-400"> 14 Lights</span>

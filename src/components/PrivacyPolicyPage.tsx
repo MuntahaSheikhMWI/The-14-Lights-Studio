@@ -18,26 +18,29 @@ export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ onNavigate
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
           <button onClick={() => onNavigate('home')} className="group flex items-center gap-3 text-left focus:outline-none" aria-label="The 14 Lights Studios - Go to Homepage">
             <div className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full overflow-hidden transition p-1 bg-white ring-2 ring-gold-400/50 shadow-md">
-              <img
-                src={vrLogo}
-                alt="The 14 Lights Studios Logo"
-                width={48}
-                height={48}
-                decoding="async"
-                fetchPriority="high"
-                className="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300"
-                onError={(e) => {
-                  const target = e.currentTarget;
-                  const fallbacks = ['/assets/VR_LOGO.png', '/VR_LOGO.png', '/logo.png', '/favicon.png'];
-                  const step = parseInt(target.dataset.fallbackStep || '0', 10);
-                  if (step < fallbacks.length) {
-                    target.dataset.fallbackStep = String(step + 1);
-                    target.src = fallbacks[step];
-                  } else {
-                    target.onerror = null;
-                  }
-                }}
-              />
+              <picture className="w-full h-full flex items-center justify-center">
+                <source srcSet="/assets/VR_LOGO.webp" type="image/webp" />
+                <img
+                  src={vrLogo}
+                  alt="The 14 Lights Studios Logo"
+                  width={48}
+                  height={48}
+                  decoding="async"
+                  fetchPriority="high"
+                  className="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    const fallbacks = ['/assets/VR_LOGO.png', '/VR_LOGO.png', '/logo.png', '/favicon.png'];
+                    const step = parseInt(target.dataset.fallbackStep || '0', 10);
+                    if (step < fallbacks.length) {
+                      target.dataset.fallbackStep = String(step + 1);
+                      target.src = fallbacks[step];
+                    } else {
+                      target.onerror = null;
+                    }
+                  }}
+                />
+              </picture>
             </div>
             <div>
               <span className="font-bold text-white text-base md:text-lg tracking-wider block font-sans">
