@@ -348,7 +348,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           <button onClick={() => onNavigate('home')} className="group flex items-center gap-3 text-left focus:outline-none" aria-label="The 14 Lights Studios - Go to Homepage">
             <div className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full overflow-hidden transition p-1 bg-white ring-2 ring-gold-400/50 shadow-md">
               <img
-                src="/favicon.png"
+                src={vrLogo}
                 alt="The 14 Lights Studios Logo"
                 width={48}
                 height={48}
@@ -356,7 +356,15 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                 fetchPriority="high"
                 className="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300"
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = '/favicon.png';
+                  const target = e.currentTarget;
+                  const fallbacks = ['/logo.png', '/favicon.png', '/vr_logo_1784728392393.png', '/assets/logo.png'];
+                  const step = parseInt(target.dataset.fallbackStep || '0', 10);
+                  if (step < fallbacks.length) {
+                    target.dataset.fallbackStep = String(step + 1);
+                    target.src = fallbacks[step];
+                  } else {
+                    target.onerror = null;
+                  }
                 }}
               />
             </div>
@@ -969,7 +977,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               <button onClick={() => onNavigate('home')} className="inline-flex items-center gap-4 group text-left">
                 <div className="w-14 h-14 rounded-2xl overflow-hidden flex items-center justify-center transition p-2 bg-white ring-2 ring-gold-400/40 shadow-lg">
                   <img
-                    src="/favicon.png"
+                    src={vrLogo}
                     alt="The 14 Lights Studios Logo"
                     width={56}
                     height={56}
@@ -977,7 +985,15 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                     decoding="async"
                     className="w-full h-full object-contain"
                     onError={(e) => {
-                      (e.target as HTMLImageElement).src = '/favicon.png';
+                      const target = e.currentTarget;
+                      const fallbacks = ['/logo.png', '/favicon.png', '/vr_logo_1784728392393.png', '/assets/logo.png'];
+                      const step = parseInt(target.dataset.fallbackStep || '0', 10);
+                      if (step < fallbacks.length) {
+                        target.dataset.fallbackStep = String(step + 1);
+                        target.src = fallbacks[step];
+                      } else {
+                        target.onerror = null;
+                      }
                     }}
                   />
                 </div>

@@ -135,7 +135,7 @@ export const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ onNavigate }) 
           <button onClick={() => onNavigate('home')} className="group flex items-center gap-3 text-left focus:outline-none">
             <div className="relative w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full overflow-hidden transition duration-300 p-1 bg-white ring-2 ring-gold-400/50 shadow-md">
               <img
-                src="/favicon.png"
+                src={vrLogo}
                 alt="The 14 Lights Studios Logo"
                 width={40}
                 height={40}
@@ -143,7 +143,15 @@ export const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ onNavigate }) 
                 fetchPriority="high"
                 className="w-full h-full object-contain"
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = '/favicon.png';
+                  const target = e.currentTarget;
+                  const fallbacks = ['/logo.png', '/favicon.png', '/vr_logo_1784728392393.png', '/assets/logo.png'];
+                  const step = parseInt(target.dataset.fallbackStep || '0', 10);
+                  if (step < fallbacks.length) {
+                    target.dataset.fallbackStep = String(step + 1);
+                    target.src = fallbacks[step];
+                  } else {
+                    target.onerror = null;
+                  }
                 }}
               />
             </div>
@@ -547,7 +555,7 @@ function initAssetBuffers(gl, meshData) {
             <button onClick={() => onNavigate('home')} className="flex items-center gap-3 mb-4 md:mb-6 text-left">
               <div className="w-8 h-8 md:w-9 md:h-9 rounded-full overflow-hidden flex items-center justify-center p-0.5 bg-white ring-2 ring-gold-400/40 shadow-md">
                 <img
-                  src="/favicon.png"
+                  src={vrLogo}
                   alt="The 14 Lights Studios Logo"
                   width={36}
                   height={36}
@@ -555,7 +563,15 @@ function initAssetBuffers(gl, meshData) {
                   decoding="async"
                   className="w-full h-full object-contain"
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = '/favicon.png';
+                    const target = e.currentTarget;
+                    const fallbacks = ['/logo.png', '/favicon.png', '/vr_logo_1784728392393.png', '/assets/logo.png'];
+                    const step = parseInt(target.dataset.fallbackStep || '0', 10);
+                    if (step < fallbacks.length) {
+                      target.dataset.fallbackStep = String(step + 1);
+                      target.src = fallbacks[step];
+                    } else {
+                      target.onerror = null;
+                    }
                   }}
                 />
               </div>

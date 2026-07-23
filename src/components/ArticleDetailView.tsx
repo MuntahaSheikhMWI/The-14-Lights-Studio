@@ -179,7 +179,7 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({ articleId,
           <button onClick={() => onNavigate('home')} className="group flex items-center gap-3 text-left focus:outline-none">
             <div className="relative w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full overflow-hidden transition duration-300 p-1 bg-white ring-2 ring-gold-400/50 shadow-md">
               <img
-                src="/favicon.png"
+                src={vrLogo}
                 alt="The 14 Lights Studios Logo"
                 width={40}
                 height={40}
@@ -187,7 +187,15 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({ articleId,
                 fetchPriority="high"
                 className="w-full h-full object-contain"
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = '/favicon.png';
+                  const target = e.currentTarget;
+                  const fallbacks = ['/logo.png', '/favicon.png', '/vr_logo_1784728392393.png', '/assets/logo.png'];
+                  const step = parseInt(target.dataset.fallbackStep || '0', 10);
+                  if (step < fallbacks.length) {
+                    target.dataset.fallbackStep = String(step + 1);
+                    target.src = fallbacks[step];
+                  } else {
+                    target.onerror = null;
+                  }
                 }}
               />
             </div>
@@ -792,7 +800,7 @@ void UAICharacterComponent::ConnectToAIServer() {
               <button onClick={() => onNavigate('home')} className="flex items-center gap-3 group text-left">
                 <div className="w-10 h-10 flex items-center justify-center rounded-full overflow-hidden p-1 bg-white ring-2 ring-gold-400/40 shadow-md">
                   <img
-                    src="/favicon.png"
+                    src={vrLogo}
                     alt="The 14 Lights Studios Logo"
                     width={40}
                     height={40}
@@ -800,7 +808,15 @@ void UAICharacterComponent::ConnectToAIServer() {
                     decoding="async"
                     className="w-full h-full object-contain"
                     onError={(e) => {
-                      (e.target as HTMLImageElement).src = '/favicon.png';
+                      const target = e.currentTarget;
+                      const fallbacks = ['/logo.png', '/favicon.png', '/vr_logo_1784728392393.png', '/assets/logo.png'];
+                      const step = parseInt(target.dataset.fallbackStep || '0', 10);
+                      if (step < fallbacks.length) {
+                        target.dataset.fallbackStep = String(step + 1);
+                        target.src = fallbacks[step];
+                      } else {
+                        target.onerror = null;
+                      }
                     }}
                   />
                 </div>
