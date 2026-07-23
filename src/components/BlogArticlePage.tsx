@@ -133,7 +133,7 @@ export const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ onNavigate }) 
       <nav className="sticky top-0 z-40 nav-glass transition-all duration-300 w-full" id="navbar" aria-label="Global Navigation">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
           <button onClick={() => onNavigate('home')} className="group flex items-center gap-3 text-left focus:outline-none">
-            <div className="relative w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full overflow-hidden transition duration-300 p-1">
+            <div className="relative w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full overflow-hidden transition duration-300 p-1 bg-white ring-2 ring-gold-400/50 shadow-md">
               <img
                 src="/favicon.png"
                 alt="The 14 Lights Studios Logo"
@@ -545,7 +545,7 @@ function initAssetBuffers(gl, meshData) {
         <div className="max-w-7xl mx-auto px-4 md:px-6 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-10 md:mb-12">
           <div className="col-span-2 md:col-span-1">
             <button onClick={() => onNavigate('home')} className="flex items-center gap-3 mb-4 md:mb-6 text-left">
-              <div className="w-8 h-8 md:w-9 md:h-9 rounded-full overflow-hidden flex items-center justify-center p-0.5">
+              <div className="w-8 h-8 md:w-9 md:h-9 rounded-full overflow-hidden flex items-center justify-center p-0.5 bg-white ring-2 ring-gold-400/40 shadow-md">
                 <img
                   src="/favicon.png"
                   alt="The 14 Lights Studios Logo"

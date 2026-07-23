@@ -346,7 +346,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       <nav className="sticky top-0 z-40 nav-glass transition-all duration-300 w-full" id="navbar" aria-label="Main Navigation">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
           <button onClick={() => onNavigate('home')} className="group flex items-center gap-3 text-left focus:outline-none" aria-label="The 14 Lights Studios - Go to Homepage">
-            <div className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full overflow-hidden transition p-1">
+            <div className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full overflow-hidden transition p-1 bg-white ring-2 ring-gold-400/50 shadow-md">
               <img
                 src="/favicon.png"
                 alt="The 14 Lights Studios Logo"
@@ -967,7 +967,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2">
               <button onClick={() => onNavigate('home')} className="inline-flex items-center gap-4 group text-left">
-                <div className="w-14 h-14 rounded-2xl overflow-hidden flex items-center justify-center transition p-1.5">
+                <div className="w-14 h-14 rounded-2xl overflow-hidden flex items-center justify-center transition p-2 bg-white ring-2 ring-gold-400/40 shadow-lg">
                   <img
                     src="/favicon.png"
                     alt="The 14 Lights Studios Logo"
