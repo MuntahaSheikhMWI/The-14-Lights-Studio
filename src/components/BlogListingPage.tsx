@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { PageView } from '../types';
 import { BLOG_ARTICLES, BlogArticleData } from '../data/blogArticles';
-import vrLogo from '../assets/images/VR_LOGO.png';
+import vrLogo from '../assets/VR_LOGO.png';
 
 interface BlogListingPageProps {
   onNavigate: (page: PageView, articleId?: string) => void;

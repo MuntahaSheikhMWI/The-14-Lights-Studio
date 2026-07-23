@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { PageView } from '../types';
-import vrLogo from '../assets/images/VR_LOGO.png';
+import vrLogo from '../assets/VR_LOGO.png';
 
 interface HomePageProps {
   onNavigate: (page: PageView, articleId?: string) => void;

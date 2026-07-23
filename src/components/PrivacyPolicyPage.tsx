@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { PageView } from '../types';
-import vrLogo from '../assets/images/vr_logo_1784728392393.png';
+import vrLogo from '../assets/VR_LOGO.png';
 
 interface PrivacyPolicyPageProps {
   onNavigate: (page: PageView, articleId?: string) => void;
@@ -28,7 +28,7 @@ export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ onNavigate
                 className="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300"
                 onError={(e) => {
                   const target = e.currentTarget;
-                  const fallbacks = ['/logo.png', '/favicon.png', '/vr_logo_1784728392393.png', '/assets/logo.png'];
+                  const fallbacks = ['/VR_LOGO.png', '/logo.png', '/favicon.png', '/assets/VR_LOGO.png'];
                   const step = parseInt(target.dataset.fallbackStep || '0', 10);
                   if (step < fallbacks.length) {
                     target.dataset.fallbackStep = String(step + 1);
