@@ -142,6 +142,9 @@ export const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ onNavigate }) 
                 decoding="async"
                 fetchPriority="high"
                 className="w-full h-full object-contain"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = '/vr_logo_1784728392393.png';
+                }}
               />
             </div>
             <div className="flex flex-col">
@@ -551,6 +554,9 @@ function initAssetBuffers(gl, meshData) {
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-contain"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = '/vr_logo_1784728392393.png';
+                  }}
                 />
               </div>
               <span className="text-lg md:text-xl font-display font-bold text-slate-900 tracking-wider">

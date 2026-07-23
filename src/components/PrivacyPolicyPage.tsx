@@ -26,6 +26,9 @@ export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ onNavigate
                 decoding="async"
                 fetchPriority="high"
                 className="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = '/vr_logo_1784728392393.png';
+                }}
               />
             </div>
             <div>

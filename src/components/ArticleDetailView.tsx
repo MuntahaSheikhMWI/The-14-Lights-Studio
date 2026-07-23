@@ -181,7 +181,14 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({ articleId,
               <img
                 src={vrLogo}
                 alt="The 14 Lights Studios Logo"
+                width={40}
+                height={40}
+                decoding="async"
+                fetchPriority="high"
                 className="w-full h-full object-contain"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = '/vr_logo_1784728392393.png';
+                }}
               />
             </div>
             <div className="flex flex-col">
@@ -787,7 +794,14 @@ void UAICharacterComponent::ConnectToAIServer() {
                   <img
                     src={vrLogo}
                     alt="The 14 Lights Studios Logo"
+                    width={40}
+                    height={40}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-contain"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = '/vr_logo_1784728392393.png';
+                    }}
                   />
                 </div>
                 <span className="text-xl font-display font-bold text-white tracking-wider">
